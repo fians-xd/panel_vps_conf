@@ -1,8 +1,9 @@
 #!/bin/bash
 
-pip3 install --upgrade pip setuptools wheel
 apt update
+pip3 install --upgrade pip
 apt install -y zlib1g-dev libjpeg-dev libfreetype6-dev
+pip3 install python-telegram-bot setuptools wheel
 
 # Function to install system packages
 install_system_packages() {
