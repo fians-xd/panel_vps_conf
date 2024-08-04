@@ -3,8 +3,8 @@
 rm install.sh
 apt update
 pip3 cache purge
-pip3 telethon==1.24.0
-pip3 requests==2.25.1 pillow==9.5.0
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade Pillow
 pip3 install --upgrade pip
 apt install -y zlib1g-dev libjpeg-dev libfreetype6-dev
 pip3 install python-telegram-bot setuptools wheel
