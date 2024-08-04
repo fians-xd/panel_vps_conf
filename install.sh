@@ -1,5 +1,9 @@
 #!/bin/bash
 
+pip3 install --upgrade pip setuptools wheel
+apt update
+apt install -y zlib1g-dev libjpeg-dev libfreetype6-dev
+
 # Function to install system packages
 install_system_packages() {
     apt update && apt upgrade -y
