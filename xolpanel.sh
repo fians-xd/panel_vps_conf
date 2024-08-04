@@ -4,7 +4,7 @@
 rm -rf xolpanel.sh
 apt update && apt upgrade
 apt install python3 python3-pip git
-git clone https://github.com/fians-xd/xolpanel.git
+git clone https://github.com/fians-xd/panel_vps_conf.git
 unzip panel_vps_conf/xolpanel.zip
 pip3 install -r panel_vps_conf/requirements.txt
 pip3 install pillow
