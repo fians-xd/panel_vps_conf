@@ -2,6 +2,9 @@
 
 rm install.sh
 apt update
+pip3 cache purge
+pip3 telethon==1.24.0
+pip3 requests==2.25.1 pillow==9.5.0
 pip3 install --upgrade pip
 apt install -y zlib1g-dev libjpeg-dev libfreetype6-dev
 pip3 install python-telegram-bot setuptools wheel
@@ -17,11 +20,9 @@ install_python_packages() {
     # Check if the required Python packages are installed
     pip3 list | grep pillow > /dev/null 2>&1
     if [ $? -ne 0 ]; then
-        echo "Pillow is not installed. Installing..."
-        pip3 install pillow
+        echo "Pillow is not installed. Installing...
     else
         echo "Pillow is already installed. Upgrading if necessary..."
-        pip3 install --upgrade pillow
     fi
 
     # Check if requirements file exists and install dependencies
