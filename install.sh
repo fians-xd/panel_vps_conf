@@ -14,8 +14,8 @@ pip3 cache purge
 clear
 echo ""
 echo -e "\e[1;33m===============================\e[0m"
-echo "        Auth: @fians-xd"
-echo "       Boot Version: 1.0"
+echo -e "        Auth: @fians-xd"
+echo -e "       Boot Version: 1.0"
 echo -e "\e[1;33m===============================\e[0m"
 read -e -p "[*] Input your Bot Token: " bottoken
 read -e -p "[*] Input Your Id Telegram: " admin
@@ -27,15 +27,20 @@ echo -e "$domain" >> /root/panel_vps_conf/ver.txt
 # Display configuration summary
 clear
 echo ""
-echo "           Rampung.!"
-echo "      Data Telah Disimpan"
+echo -e "           Rampung.!"
+echo -e "      Data Telah Disimpan"
 echo -e "\e[1;33m===============================\e[0m"
-echo "Bot Token     : $bottoken"
-echo "Id Telegram   : $admin"
-echo "Subdomain     : $domain"
+echo -e "Bot Token     : $bottoken"
+echo -e "Id Telegram   : $admin"
+echo -e "Subdomain     : $domain"
 echo -e "\e[1;33m===============================\e[0m"
-echo "Setting done Please wait 10s"
+clear
+echo ""
+echo -e "\e[1;33m===============================\e[0m"
+echo -e "Setting done Please wait 10s"
+echo -e "\e[1;33m===============================\e[0m"
 sleep 10
+clear
 
 # Create systemd service
 echo ""
@@ -63,7 +68,7 @@ systemctl start runbot.service
 # Cleanup and reboot
 echo ""
 echo -e "\e[1;33m===============================================\e[0m"
-echo " Installations complete, type /menu on your bot"
+echo -e "Installations complete, type /menu on your bot"
 echo -e "\e[1;33m===============================================\e[0m"
 read -n 1 -s -r -p "Press any key to Reboot"
 cd panel_vps_conf
