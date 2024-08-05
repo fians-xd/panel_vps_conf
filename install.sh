@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 apt update
 apt install python3-pip
 python3 -m pip install --upgrade pip
@@ -28,7 +27,7 @@ echo -e "$domain" >> /root/panel_vps_conf/ver.txt
 # Display configuration summary
 clear
 echo ""
-echo "           Rampung"
+echo "           Rampung.!"
 echo "      Data Telah Disimpan"
 echo -e "==============================="
 echo "Bot Token     : $bottoken"
@@ -39,6 +38,7 @@ echo "Setting done Please wait 10s"
 sleep 10
 
 # Create systemd service
+echo ""
 cat > /etc/systemd/system/runbot.service << END
 [Unit]
 Description=Simple Telenel - @yansxd
@@ -55,11 +55,13 @@ WantedBy=multi-user.target
 END
 
 # Enable and start the service
+echo ""
 systemctl daemon-reload
 systemctl enable runbot.service
 systemctl start runbot.service
 
 # Cleanup and reboot
+echo ""
 echo -e "==============================================="
 echo " Installations complete, type /menu on your bot"
 echo -e "==============================================="
