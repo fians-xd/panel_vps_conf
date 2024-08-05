@@ -29,7 +29,6 @@ async def menu(update: Update, context: CallbackContext):
 ===========================
       👨‍💻 Panel Admin Config 👨‍💻
 ===========================
-===========================
          💠 Versi Boot: 1.0 
         💠 Author: @Sofian
 ==========================="""
