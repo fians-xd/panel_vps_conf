@@ -29,8 +29,8 @@ async def menu(update: Update, context: CallbackContext):
     >> Panel Admin Config <<
     ===========================
     =============================
-    >> Author: @Sofian <<
     >> Versi Boot: 1.0 <<
+    >> Author: @Sofian <<
     ============================="""
     await update.message.reply_text(pesan, reply_markup=reply_markup)
 
