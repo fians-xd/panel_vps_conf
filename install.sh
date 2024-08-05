@@ -13,10 +13,10 @@ pip3 cache purge
 # Collect user inputs
 clear
 echo ""
-echo -e "==============================="
+echo -e "\e[1;33m===============================\e[0m"
 echo "        Auth: @fians-xd"
 echo "       Boot Version: 1.0"
-echo -e "==============================="
+echo -e "\e[1;33m===============================\e[0m"
 read -e -p "[*] Input your Bot Token: " bottoken
 read -e -p "[*] Input Your Id Telegram: " admin
 read -e -p "[*] Input Your Subdomain: " domain
@@ -29,11 +29,11 @@ clear
 echo ""
 echo "           Rampung.!"
 echo "      Data Telah Disimpan"
-echo -e "==============================="
+echo -e "\e[1;33m===============================\e[0m"
 echo "Bot Token     : $bottoken"
 echo "Id Telegram   : $admin"
 echo "Subdomain     : $domain"
-echo -e "==============================="
+echo -e "\e[1;33m===============================\e[0m"
 echo "Setting done Please wait 10s"
 sleep 10
 
@@ -62,9 +62,9 @@ systemctl start runbot.service
 
 # Cleanup and reboot
 echo ""
-echo -e "==============================================="
+echo -e "\e[1;33m===============================================\e[0m"
 echo " Installations complete, type /menu on your bot"
-echo -e "==============================================="
+echo -e "\e[1;33m===============================================\e[0m"
 read -n 1 -s -r -p "Press any key to Reboot"
 cd panel_vps_conf
 rm install.sh
