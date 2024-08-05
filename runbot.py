@@ -25,13 +25,14 @@ async def menu(update: Update, context: CallbackContext):
         [InlineKeyboardButton("Buat Trojan", callback_data='buat_trojan')],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    pesan = """===========================
-    >> Panel Admin Config <<
-    ===========================
-    =============================
-    >> Versi Boot: 1.0 <<
-    >> Author: @Sofian <<
-    ============================="""
+    pesan = """
+===========================
+   👨‍💻 Panel Admin Config 👨‍💻
+===========================
+=============================
+    💠 Versi Boot: 1.0 
+    💠 Author: @Sofian
+============================="""
     await update.message.reply_text(pesan, reply_markup=reply_markup)
 
 async def button(update: Update, context: CallbackContext):
