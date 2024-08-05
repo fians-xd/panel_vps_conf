@@ -25,7 +25,15 @@ async def menu(update: Update, context: CallbackContext):
         [InlineKeyboardButton("Buat Trojan", callback_data='buat_trojan')],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text('======================\n>> Panel Admin Ssh Ws <<\n======================', reply_markup=reply_markup)
+    pesan = """
+      ===========================
+        >> Panel Admin Config <<
+      ===========================
+    ===============================
+    >> Author: @Sofian <<
+    >> Versi Boot: 1.0 <<
+    ==============================="""
+    await update.message.reply_text(pesan, reply_markup=reply_markup)
 
 async def button(update: Update, context: CallbackContext):
     query = update.callback_query
