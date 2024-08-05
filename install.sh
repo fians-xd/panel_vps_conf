@@ -2,46 +2,10 @@
 
 rm install.sh
 apt update
-sudo apt-get install libtiff5-dev libjpeg8-dev libopenjp2-7-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python3-tk libharfbuzz-dev libfribidi-dev libxcb1-dev
+apt install libtiff5-dev libjpeg8-dev libopenjp2-7-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python3-tk libharfbuzz-dev libfribidi-dev libxcb1-dev
 pip3 cache purge
 python3 -m pip install --upgrade pip
-python3 -m pip install --upgrade Pillow
-pip3 install --upgrade pip
-apt install -y zlib1g-dev libjpeg-dev libfreetype6-dev
 pip3 install python-telegram-bot setuptools wheel
-
-# Function to install system packages
-install_system_packages() {
-    apt update && apt upgrade -y
-    apt install -y python3 python3-pip git
-}
-
-# Function to install Python packages
-install_python_packages() {
-    # Check if the required Python packages are installed
-    pip3 list | grep pillow > /dev/null 2>&1
-    if [ $? -ne 0 ]; then
-        echo "Pillow is not installed. Installing...
-    else
-        echo "Pillow is already installed. Upgrading if necessary..."
-    fi
-
-    # Check if requirements file exists and install dependencies
-    if [ -f /root/panel_vps_conf/requirements.txt ]; then
-        pip3 install -r /root/panel_vps_conf/requirements.txt
-    fi
-}
-
-# Install system packages
-install_system_packages
-
-# Clone repository if not already cloned
-if [ ! -d "/root/panel_vps_conf" ]; then
-    git clone https://github.com/fians-xd/panel_vps_conf.git
-fi
-
-# Install or upgrade Python packages
-install_python_packages
 
 # Collect user inputs
 echo ""
