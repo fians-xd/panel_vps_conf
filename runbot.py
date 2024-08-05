@@ -48,19 +48,19 @@ async def button(update: Update, context: CallbackContext):
     action = script_map.get(query.data)
     if action == 'start_ssh_creation':
         user_data[query.from_user.id] = {'action': 'start_ssh_creation'}
-        await query.edit_message_text(text="Please provide a username for the SSH WebSocket account:")
+        await query.edit_message_text(text="Masukan Nama Akun Ssh:")
         return USERNAME
     elif action == 'start_vmess_creation':
         user_data[query.from_user.id] = {'action': 'start_vmess_creation'}
-        await query.edit_message_text(text="Please provide a username for the VMess account:")
+        await query.edit_message_text(text="Masukan Nama Akun Ssh VMess:")
         return USERNAME
     elif action == 'start_vless_creation':
         user_data[query.from_user.id] = {'action': 'start_vless_creation'}
-        await query.edit_message_text(text="Please provide a username for the VLess account:")
+        await query.edit_message_text(text="Masukan Nama Akun Ssh VLess:")
         return USERNAME
     elif action == 'start_trojan_creation':
         user_data[query.from_user.id] = {'action': 'start_trojan_creation'}
-        await query.edit_message_text(text="Please provide a username for the Trojan account:")
+        await query.edit_message_text(text="Masukan Nama Akun Ssh Trojan:")
         return USERNAME
     else:
         await query.edit_message_text(text="Action not implemented.")
@@ -72,22 +72,22 @@ async def handle_username(update: Update, context: CallbackContext):
     
     if 'action' in user_data[user_id]:
         if user_data[user_id]['action'] == 'start_ssh_creation':
-            await update.message.reply_text('Please provide a password for the SSH WebSocket account:')
+            await update.message.reply_text('Masukan Password Akun Ssh:')
             return PASSWORD
         elif user_data[user_id]['action'] == 'start_vmess_creation':
-            await update.message.reply_text('Please provide the expiry date (in days) for the VMess account:')
+            await update.message.reply_text('Masukan Berapa Lama Xpired VMess contoh (1,2,3 dll):')
             return EXPIRY
         elif user_data[user_id]['action'] == 'start_vless_creation':
-            await update.message.reply_text('Please provide the expiry date (in days) for the VLess account:')
+            await update.message.reply_text('Masukan Berapa Lama Xpired VLess contoh (1,2,3 dll):')
             return EXPIRY
         elif user_data[user_id]['action'] == 'start_trojan_creation':
-            await update.message.reply_text('Please provide the expiry date (in days) for the Trojan account:')
+            await update.message.reply_text('Masukan Berapa Lama Xpired Trojan contoh (1,2,3 dll):')
             return EXPIRY
 
 async def handle_password(update: Update, context: CallbackContext):
     user_id = update.message.from_user.id
     user_data[user_id]['password'] = update.message.text
-    await update.message.reply_text('Please provide the expiry date (in days) for the SSH WebSocket account:')
+    await update.message.reply_text('Masukan Berapa Lama Xpired Ssh contoh (1,2,3 dll):')
     return EXPIRY
 
 async def handle_expiry(update: Update, context: CallbackContext):
