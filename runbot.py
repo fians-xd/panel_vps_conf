@@ -52,15 +52,15 @@ async def button(update: Update, context: CallbackContext):
         return USERNAME
     elif action == 'start_vmess_creation':
         user_data[query.from_user.id] = {'action': 'start_vmess_creation'}
-        await query.edit_message_text(text="Masukan Nama Akun Ssh VMess:")
+        await query.edit_message_text(text="Masukan Nama Akun VMess:")
         return USERNAME
     elif action == 'start_vless_creation':
         user_data[query.from_user.id] = {'action': 'start_vless_creation'}
-        await query.edit_message_text(text="Masukan Nama Akun Ssh VLess:")
+        await query.edit_message_text(text="Masukan Nama Akun VLess:")
         return USERNAME
     elif action == 'start_trojan_creation':
         user_data[query.from_user.id] = {'action': 'start_trojan_creation'}
-        await query.edit_message_text(text="Masukan Nama Akun Ssh Trojan:")
+        await query.edit_message_text(text="Masukan Nama Akun Trojan:")
         return USERNAME
     else:
         await query.edit_message_text(text="Action not implemented.")
