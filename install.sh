@@ -37,7 +37,7 @@ echo -e "\e[1;33m===============================\e[0m"
 clear
 echo ""
 echo -e "\e[1;33m===============================\e[0m"
-echo -e "Setting done Please wait 10s"
+echo -e "Setting  Done Please wait 10s"
 echo -e "\e[1;33m===============================\e[0m"
 sleep 10
 clear
