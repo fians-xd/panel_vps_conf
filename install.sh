@@ -36,9 +36,9 @@ echo -e "Subdomain     : $domain"
 echo -e "\e[1;33m===============================\e[0m"
 clear
 echo ""
-echo -e "\e[1;33m===============================\e[0m"
-echo -e "Setting  Done Please wait 10s"
-echo -e "\e[1;33m===============================\e[0m"
+echo -e "\e[1;33m=======================================\e[0m"
+echo -e "Tunggu Menyelesaikan Pengaturan 10s Anj :v"
+echo -e "\e[1;33m=======================================\e[0m"
 sleep 10
 clear
 
@@ -67,10 +67,10 @@ systemctl start runbot.service
 
 # Cleanup and reboot
 echo ""
-echo -e "\e[1;33m===============================================\e[0m"
-echo -e "Installations complete, type /menu on your bot"
-echo -e "\e[1;33m===============================================\e[0m"
-read -n 1 -s -r -p "Press any key to Reboot"
+echo -e "\e[1;33m==================================================\e[0m"
+echo -e "Installasi Telah Selesai, Klik /start Di Boot"
+echo -e "\e[1;33m==================================================\e[0m"
+read -n 1 -s -r -p "Tekan Enter Untuk Reboot System: "
 
 rm install.sh
 cd panel_vps_conf
