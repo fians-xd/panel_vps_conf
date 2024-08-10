@@ -66,7 +66,7 @@ async def start(message: types.Message):
     await message.answer(
         "==============================\n"
         " ∧,,,∧  🧑‍💻 ADMIN PANEL SC 🧑‍💻  ^  ִֶָ𖦹\n"
-        "(  ̳• · • ̳)        Version bot: 3.1   𓂃    ©  \n"
+        "(  ̳• · • ̳)        Version bot: 4.0   𓂃    ©  \n"
         "/    づ♡ ♡  Author: Sofian-n  °  𓂃 ࣪ ˖  ִֶָ𐀔\n"
         "==============================\n",
         parse_mode='Markdown',
