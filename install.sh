@@ -2,13 +2,11 @@
 
 apt update
 apt install python3-pip -y
-python3 -m pip install --upgrade pip
-pip3 install --upgrade idna
 apt install python3-pil -y
+python3 -m pip install --upgrade pip
+pip3 install --upgrade idna install aiogram setuptools wheel
 git clone https://github.com/fians-xd/panel_vps_conf.git
 apt install libtiff5-dev libjpeg8-dev libopenjp2-7-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python3-tk libharfbuzz-dev libfribidi-dev libxcb1-dev -y
-pip3 install aiogram python-telegram-bot setuptools wheel telegram
-pip3 cache purge
 
 # Collect user inputs
 clear
@@ -72,7 +70,8 @@ echo -e "Installasi Telah Selesai, Klik /start Di Boot"
 echo -e "\e[1;33m==================================================\e[0m"
 read -n 1 -s -r -p "Tekan Enter Untuk Reboot System: "
 
-rm install.sh
+rm -rf install.sh
+pip3 cache purge
 cd panel_vps_conf
 rm README.md
 rm -rf .git
