@@ -31,12 +31,6 @@ echo -e "Id Telegram   : $admin"
 echo -e "Subdomain     : $domain"
 echo -e "\e[1;33m===============================\e[0m"
 clear
-echo ""
-echo -e "\e[1;33m=======================================\e[0m"
-echo -e "Tunggu Menyelesaikan Pengaturan 10s Anj :v"
-echo -e "\e[1;33m=======================================\e[0m"
-sleep 10
-clear
 
 # Create systemd service
 echo ""
@@ -57,11 +51,17 @@ END
 
 # Enable and start the service
 echo ""
+echo -e "\e[1;33m=======================================\e[0m"
+echo -e "Tunggu Menyelesaikan Pengaturan 10s Anj :v"
+echo -e "\e[1;33m=======================================\e[0m"
+sleep 0.5
+echo ""
 systemctl daemon-reload
 systemctl enable runbot.service
 systemctl start runbot.service
 
 # Cleanup and reboot
+clear
 echo ""
 echo -e "\e[1;33m==================================================\e[0m"
 echo -e "Installasi Telah Selesai, Klik /start Di Boot"
