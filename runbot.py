@@ -83,7 +83,7 @@ async def handle_protocol(query: types.CallbackQuery):
             InlineKeyboardButton("【 Live Akun 】", callback_data=f'{query.data}_live'),
             InlineKeyboardButton("【 Trial Akun 】", callback_data=f'{query.data}_trial')
         )
-        await query.message.edit_text(text="‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  PILIH TIPE AKUN  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎\n‎ ", reply_markup=keyboard)
+        await query.message.edit_text(text="‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  PILIH TIPE AKUN  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=keyboard)
         await query.answer()
     else:
         await query.answer(text="Invalid protocol key.", show_alert=True)
