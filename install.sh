@@ -3,7 +3,7 @@
 apt update
 apt install python3-pip python3-pil -y
 python3 -m pip install --upgrade pip
-pip3 install --upgrade idna install aiogram setuptools wheel
+python3 -m pip install --upgrade idna aiogram setuptools wheel
 git clone https://github.com/fians-xd/panel_vps_conf.git
 
 # Collect user inputs
