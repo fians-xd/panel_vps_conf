@@ -71,8 +71,9 @@ echo -e "\e[1;33m===============================================\e[0m"
 echo -e "Installations complete, type /menu on your bot"
 echo -e "\e[1;33m===============================================\e[0m"
 read -n 1 -s -r -p "Press any key to Reboot"
-cd panel_vps_conf
+
 rm install.sh
+cd panel_vps_conf
 rm README.md
 rm -rf .git
 cd ..
