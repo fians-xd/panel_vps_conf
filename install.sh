@@ -73,8 +73,8 @@ read -n 1 -s -r -p "Tekan Enter Untuk Reboot System: "
 
 apt autoremove -y
 pip3 cache purge
+rm -rf install.sh
 cd panel_vps_conf
-rm install.sh
 rm README.md
 rm -rf .git
 cd ..
