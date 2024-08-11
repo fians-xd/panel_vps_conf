@@ -64,14 +64,14 @@ main_keyboard.add(
     InlineKeyboardButton("【 Trojan 】", callback_data='buat_trojan')
 )
 main_keyboard.add(
+    InlineKeyboardButton("【 Your OS Settings 】", callback_data='settings')
+)
+main_keyboard.add(
     InlineKeyboardButton("【 Donate 】", url='wa.me/6285788962287'),
-    InlineKeyboardButton("【 Server fees 】", url='https://t.me/+LTtQ920p7PBhNTRl')
+    InlineKeyboardButton("【 Serv fees 】", url='https://t.me/+LTtQ920p7PBhNTRl')
 )
 main_keyboard.add(
-    InlineKeyboardButton("【 Report Bug To Mee 】", url='t.me/yansxdi')
-)
-main_keyboard.add(
-    InlineKeyboardButton("【 Your Vps/OS Settings 】", callback_data='settings')
+    InlineKeyboardButton("【 Report Bug To Mee Auth 】", url='t.me/yansxdi')
 )
 
 # Keyboard pengaturan
