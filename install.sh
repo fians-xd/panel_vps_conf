@@ -5,6 +5,9 @@ apt install python3-pip python3-pil -y
 python3 -m pip install --upgrade pip
 python3 -m pip install --upgrade idna aiogram
 git clone https://github.com/fians-xd/panel_vps_conf.git
+cd panel_vps_conf
+rm ver.txt
+cd
 
 # Collect user inputs
 clear
