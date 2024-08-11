@@ -239,7 +239,7 @@ async def process_settings(query: types.CallbackQuery):
             with open('/etc/status-service.log', 'r') as file:
                 status_log = file.read()
                 
-            await bot.send_message(query.from_user.id, f"Status Service:\n{status_log}")
+            await bot.send_message(query.from_user.id, f"{status_log}")
 
         except subprocess.CalledProcessError as e:
             logging.error(f"Error while running the script: {e.stderr.strip()}")
