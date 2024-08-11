@@ -68,10 +68,10 @@ echo -e "Installasi Telah Selesai, Klik /start Di Boot"
 echo -e "\e[1;33m==================================================\e[0m"
 read -n 1 -s -r -p "Tekan Enter Untuk Reboot System: "
 
-rm -rf install.sh
 apt autoremove -y
 pip3 cache purge
 cd panel_vps_conf
+rm install.sh
 rm README.md
 rm -rf .git
 cd ..

@@ -63,7 +63,7 @@ main_keyboard.add(
     InlineKeyboardButton("【 Donate 】", url='wa.me/6285788962287'),
     InlineKeyboardButton("【 Server fees 】", url='https://t.me/+LTtQ920p7PBhNTRl'),
     InlineKeyboardButton("【 Report Bug To Me 】", url='t.me/yansxdi'),
-    InlineKeyboardButton("【 Settings 】", callback_data='settings')  # Tombol pengaturan
+    InlineKeyboardButton("【 Your Vps Settings 】", callback_data='settings')
 )
 
 # Keyboard pengaturan
