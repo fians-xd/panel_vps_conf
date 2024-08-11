@@ -57,13 +57,21 @@ prompt_map = {
 main_keyboard = InlineKeyboardMarkup(row_width=2)
 main_keyboard.add(
     InlineKeyboardButton("【 SSH 】", callback_data='buat_ssh'),
-    InlineKeyboardButton("【 Vmess 】", callback_data='buat_vmess'),
+    InlineKeyboardButton("【 Vmess 】", callback_data='buat_vmess')
+)
+main_keyboard.add(
     InlineKeyboardButton("【 Vless 】", callback_data='buat_vless'),
-    InlineKeyboardButton("【 Trojan 】", callback_data='buat_trojan'),
-    InlineKeyboardButton("【 Donate 】", url='wa.me/6285788962287'),
-    InlineKeyboardButton("【 Server fees 】", url='https://t.me/+LTtQ920p7PBhNTRl'),
-    InlineKeyboardButton("【 Report Bug To Me 】", url='t.me/yansxdi'),
+    InlineKeyboardButton("【 Trojan 】", callback_data='buat_trojan')
+)
+main_keyboard.add(
     InlineKeyboardButton("【 Your Vps Settings 】", callback_data='settings')
+)
+main_keyboard.add(
+    InlineKeyboardButton("【 Donate 】", url='wa.me/6285788962287'),
+    InlineKeyboardButton("【 Server fees 】", url='https://t.me/+LTtQ920p7PBhNTRl')
+)
+main_keyboard.add(
+    InlineKeyboardButton("【 Report Bug To Mee 】", url='t.me/yansxdi')
 )
 
 # Keyboard pengaturan
