@@ -80,9 +80,9 @@ settings_buttons = [
     InlineKeyboardButton("Monitor", callback_data="monitor"),
     InlineKeyboardButton("Reboot", callback_data="reboot"),
     InlineKeyboardButton("Clear Cache", callback_data="clear_cache"),
-    InlineKeyboardButton("Reset All Service", callback_data="reset_all_service"),
+    InlineKeyboardButton("Status Service", callback_data="status_service"),
     InlineKeyboardButton("Set Autoreboot", callback_data="set_autoreboot"),
-    InlineKeyboardButton("Status Service", callback_data="status_service")
+    InlineKeyboardButton("Restart All Service", callback_data="reset_all_service")
 ]
 settings_keyboard.add(*settings_buttons)
 
@@ -166,7 +166,7 @@ async def handle_type(query: types.CallbackQuery):
 
 @dp.callback_query_handler(lambda c: c.data == 'settings')
 async def show_settings(query: types.CallbackQuery):
-    await query.message.edit_text("Pengaturan:", reply_markup=settings_keyboard)
+    await query.message.edit_text("Harap Hati-Hati:", reply_markup=settings_keyboard)
     await query.answer()
 
 @dp.callback_query_handler(lambda c: c.data in ['monitor', 'reboot', 'clear_cache', 'reset_all_service', 'set_autoreboot', 'status_service'])
@@ -183,18 +183,18 @@ async def process_settings(query: types.CallbackQuery):
         swap_bar = create_bar(float(swap_usage))
 
         await bot.send_message(query.from_user.id,
-                               f"CPU Usage: {cpu_bar} {cpu_usage:.2f}%\n"
-                               f"Memory Usage: {memory_bar} {memory_usage}%\n"
-                               f"Swap Usage: {swap_bar} {swap_usage}%")
+                               f"CPU Usage: {cpu_bar} {cpu_usage:.2f}%\n"                               
+                               f"Swap Usage: {swap_bar} {swap_usage}%"
+                               f"Memory Usage: {memory_bar} {memory_usage}%\n")
 
     elif action == "reboot":
-        await bot.send_message(query.from_user.id, "Klik 'Start' setelah 5 detik untuk melakukan reboot.")
+        await bot.send_message(query.from_user.id, "Ketik './start' lagi setelah 5-10 detik, menunggu OS dimuat.!")
         await asyncio.sleep(5)
         os.system("reboot")
 
     elif action == "clear_cache":
         os.system("apt-get autoremove -y && apt-get autoclean -y")
-        await bot.send_message(query.from_user.id, "Pembersihan berhasil dilakukan.")
+        await bot.send_message(query.from_user.id, "Selesai membersihkan sampah.!")
 
     elif action == "set_autoreboot":
         os.system("(crontab -l ; echo '0 0 * * * /sbin/reboot') | crontab -")
@@ -227,10 +227,10 @@ async def process_settings(query: types.CallbackQuery):
             if process.returncode != 0:
                 logging.error(f"Error while restarting service '{service}': {process.stderr.strip()}")
         
-        await bot.send_message(query.from_user.id, "Semua layanan telah di-restart.")
+        await bot.send_message(query.from_user.id, "Semua layanan telah di restart.!")
 
     elif action == "status_service":
-        await bot.send_message(query.from_user.id, "Mengambil status layanan, mohon tunggu...")
+        await bot.send_message(query.from_user.id, "Memindai status layanan...")
         try:
             # Jalankan skrip shell 'running'
             subprocess.run('running', shell=True, check=True)
