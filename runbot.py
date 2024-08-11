@@ -184,8 +184,8 @@ async def process_settings(query: types.CallbackQuery):
 
         await bot.send_message(query.from_user.id,
                                f"CPU Usage: {cpu_bar} {cpu_usage:.2f}%\n"                               
-                               f"Swap Usage: {swap_bar} {swap_usage}%"
-                               f"Memory Usage: {memory_bar} {memory_usage}%\n")
+                               f"Swap Usage: {swap_bar} {swap_usage}%\n"
+                               f"Memory Usage: {memory_bar} {memory_usage}%")
 
     elif action == "reboot":
         await bot.send_message(query.from_user.id, "Ketik './start' lagi setelah 5-10 detik, menunggu OS dimuat.!")
