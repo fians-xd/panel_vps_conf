@@ -1,10 +1,10 @@
+import os
+import logging
+import asyncio
+import subprocess
+from aiogram.utils import executor
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from aiogram.utils import executor
-import subprocess
-import logging
-import os
-import asyncio
 
 # Membaca token dari file ver.txt
 def get_api_token(file_path):
