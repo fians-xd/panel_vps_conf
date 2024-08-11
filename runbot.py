@@ -64,14 +64,14 @@ main_keyboard.add(
     InlineKeyboardButton("【 Trojan 】", callback_data='buat_trojan')
 )
 main_keyboard.add(
-    InlineKeyboardButton("【 Your Vps Settings 】", callback_data='settings')
-)
-main_keyboard.add(
     InlineKeyboardButton("【 Donate 】", url='wa.me/6285788962287'),
     InlineKeyboardButton("【 Server fees 】", url='https://t.me/+LTtQ920p7PBhNTRl')
 )
 main_keyboard.add(
     InlineKeyboardButton("【 Report Bug To Mee 】", url='t.me/yansxdi')
+)
+main_keyboard.add(
+    InlineKeyboardButton("【 Your Vps/OS Settings 】", callback_data='settings')
 )
 
 # Keyboard pengaturan
@@ -188,7 +188,7 @@ async def process_settings(query: types.CallbackQuery):
                                f"Memory Usage: {memory_bar} {memory_usage}%")
 
     elif action == "reboot":
-        await bot.send_message(query.from_user.id, "Ketik './start' lagi setelah 5-10 detik, menunggu OS dimuat.!")
+        await bot.send_message(query.from_user.id, "Ketik '/start' lagi setelah 5-10 detik, menunggu OS dimuat.!")
         await asyncio.sleep(5)
         os.system("reboot")
 
