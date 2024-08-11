@@ -1,13 +1,11 @@
 #!/bin/bash
 
 apt update
-apt install python3-pip python3-pil -y
+apt install python3 python3-pip python3-pil -y
 python3 -m pip install --upgrade pip
-python3 -m pip install --upgrade idna aiogram
+python3 -m pip install aiogram==2.25.2
 git clone https://github.com/fians-xd/panel_vps_conf.git
-cd panel_vps_conf
-rm ver.txt
-cd
+rm -rf /panel_vps_conf/ver.txt
 
 # Collect user inputs
 clear
@@ -72,10 +70,8 @@ echo -e "\e[1;33m==================================================\e[0m"
 read -n 1 -s -r -p "Tekan Enter Untuk Reboot System: "
 
 apt autoremove -y
-pip3 cache purge
 rm -rf install.sh
-cd panel_vps_conf
-rm README.md
-rm -rf .git
-cd ..
+pip3 cache purge
+rm /panel_vps_conf/README.md
+rm -rf /panel_vps_conf/.git
 reboot
