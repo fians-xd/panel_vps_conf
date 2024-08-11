@@ -77,12 +77,12 @@ main_keyboard.add(
 # Keyboard pengaturan
 settings_keyboard = InlineKeyboardMarkup(row_width=2)
 settings_buttons = [
-    InlineKeyboardButton("Monitor", callback_data="monitor"),
-    InlineKeyboardButton("Reboot", callback_data="reboot"),
-    InlineKeyboardButton("Clear Cache", callback_data="clear_cache"),
-    InlineKeyboardButton("Status Service", callback_data="status_service"),
-    InlineKeyboardButton("Set Autoreboot", callback_data="set_autoreboot"),
-    InlineKeyboardButton("Restart All Service", callback_data="reset_all_service")
+    InlineKeyboardButton("【 Monitor 】", callback_data="monitor"),
+    InlineKeyboardButton("【 Reboot 】", callback_data="reboot"),
+    InlineKeyboardButton("【 Clear Cache 】", callback_data="clear_cache"),
+    InlineKeyboardButton("【 Status Service 】", callback_data="status_service"),
+    InlineKeyboardButton("【 Set Autoreboot 】", callback_data="set_autoreboot"),
+    InlineKeyboardButton("【 Restart All Service 】", callback_data="reset_all_service")
 ]
 settings_keyboard.add(*settings_buttons)
 
