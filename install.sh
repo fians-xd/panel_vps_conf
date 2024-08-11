@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt update
-apt install python3 python3-pip python3-pil -y
+apt install python3 python3-pip -y
 python3 -m pip install --upgrade pip
 python3 -m pip install aiogram==2.25.2
 git clone https://github.com/fians-xd/panel_vps_conf.git
