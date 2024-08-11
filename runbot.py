@@ -99,7 +99,7 @@ def get_cpu_usage():
 
 def create_bar(percentage, length=10):  # Bar length shortened for a more compact display
     filled_length = int(length * percentage // 100)
-    bar = '#' * filled_length + '-' * (length - filled_length)
+    bar = '■' * filled_length + '-' * (length - filled_length)
     return bar
 
 @dp.message_handler(commands=['start'])
