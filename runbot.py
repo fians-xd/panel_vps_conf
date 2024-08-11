@@ -201,7 +201,7 @@ async def process_settings(query: types.CallbackQuery):
         await bot.send_message(query.from_user.id, "VPS ini akan reboot otomatis setiap 24 jam sekali.")
 
     elif action == "reset_all_service":
-        await bot.send_message(query.from_user.id, "Mereset semua layanan, mohon tunggu...")
+        await bot.send_message(query.from_user.id, "Merestart semua layanan, mohon tunggu...")
         
         services = [
             '/etc/init.d/ssh restart',
