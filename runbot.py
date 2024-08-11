@@ -166,7 +166,7 @@ async def handle_type(query: types.CallbackQuery):
 
 @dp.callback_query_handler(lambda c: c.data == 'settings')
 async def show_settings(query: types.CallbackQuery):
-    await query.message.edit_text("Harap Hati-Hati:", reply_markup=settings_keyboard)
+    await query.message.edit_text("‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
     await query.answer()
 
 @dp.callback_query_handler(lambda c: c.data in ['monitor', 'reboot', 'clear_cache', 'reset_all_service', 'set_autoreboot', 'status_service'])
