@@ -107,64 +107,17 @@ def create_bar(percentage, length=10):  # Bar length shortened for a more compac
     bar = '|' * filled_length + '-' * (length - filled_length)
     return bar
 
-def run_shell_command(command):
-    result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    return result.stdout.strip(), result.stderr.strip()
-
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
-    try:
-        # Ambil informasi sistem operasi
-        os_info = platform.platform()
-        logging.info(f"OS Info: {os_info}")
-
-        # Ambil uptime
-        uptime = subprocess.check_output("uptime -p", shell=True).decode().strip()
-        logging.info(f"Uptime: {uptime}")
-
-        # Ambil domain
-        try:
-            with open('/etc/xray/domain', 'r') as file:
-                domain = file.read().strip()
-                logging.info(f"Domain: {domain}")
-        except FileNotFoundError:
-            domain = "Domain not found"
-            logging.error("Domain file not found")
-
-        # Ambil info dari perintah shell
-        day, date, date2, ipvps, loc = run_shell_command('DAY=$(date +%A); DATE=$(date +%m/%d/%Y); DATE2=$(date -R | cut -d " " -f -5); IPVPS=$(curl -s ifconfig.me); LOC=$(curl -s ifconfig.co/country)')
-        logging.info(f"Date: {date}, Time: {date2}, IP: {ipvps}, Location: {loc}")
-
-        # Ambil tanggal dan waktu saat ini
-        current_time = datetime.now().strftime('%a, %d %b %Y %H:%M:%S')
-        logging.info(f"Current Time: {current_time}")
-
-        await message.answer(
-            "==============================\n"
-            " ∧,,,∧  🧑‍💻 ADMIN PANEL SC 🧑‍💻  ^  ִֶָ𖦹\n"
-            "(  ̳• · • ̳)        Version bot: 5.0   𓂃    ©  \n"
-            "/    づ♡ ♡  Author: Sofian-n  °  𓂃 ࣪ ˖  ִֶָ𐀔\n"
-            "==============================\n"
-            f"OS          : {os_info}\n"
-            f"Uptime      : {uptime}\n"
-            f"Domain      : {domain}\n"
-            f"Date        : {date}\n"
-            f"Time        : {date2}\n"
-            f"Public IP   : {ipvps}\n"
-            f"Location    : {loc}\n"
-            f"DATE & TIME : {current_time}\n"
-            "==============================\n",
-            parse_mode='Markdown',
-            reply_markup=main_keyboard
-        )
-
-    except Exception as e:
-        logging.error(f"An error occurred: {e}")
-        await message.answer(
-            "Terjadi kesalahan saat mencoba mendapatkan informasi server.",
-            parse_mode='Markdown',
-            reply_markup=main_keyboard
-        )
+    await message.answer(
+        "==============================\n"
+        " ∧,,,∧  🧑‍💻 ADMIN PANEL SC 🧑‍💻  ^  ִֶָ𖦹\n"
+        "(  ̳• · • ̳)        Version bot: 5.0   𓂃    ©  \n"
+        "/    づ♡ ♡  Author: Sofian-n  °  𓂃 ࣪ ˖  ִֶָ𐀔\n"
+        "==============================\n",
+        parse_mode='Markdown',
+        reply_markup=main_keyboard
+    )
         
 @dp.callback_query_handler(lambda c: c.data in protocol_map)
 async def handle_protocol(query: types.CallbackQuery):
