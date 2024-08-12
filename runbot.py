@@ -131,26 +131,18 @@ async def start(message: types.Message):
     # Ambil tanggal dan waktu saat ini
     current_time = datetime.now().strftime('%a, %d %b %Y %H:%M:%S')
 
-    # Author informasi
-    author_info = "fian & lista"
-
-    # Format informasi server
-    server_info = (
-        f"OS          : {os_info}\n"
-        f"Uptime      : {uptime}\n"
-        f"Domain      : {domain}\n"
-        f"Country     : {country_info}\n"
-        f"Public IP   : {public_ip}\n"
-        f"DATE & TIME : {current_time}\n"
-    )
-
     await message.answer(
         "==============================\n"
         " ∧,,,∧  🧑‍💻 ADMIN PANEL SC 🧑‍💻  ^  ִֶָ𖦹\n"
         "(  ̳• · • ̳)        Version bot: 5.0   𓂃    ©  \n"
         "/    づ♡ ♡  Author: Sofian-n  °  𓂃 ࣪ ˖  ִֶָ𐀔\n"
         "==============================\n"
-        f"{server_info}"
+        "OS          : {os_info}\n"
+        "Uptime      : {uptime}\n"
+        "Domain      : {domain}\n"
+        "Country     : {country_info}\n"
+        "Public IP   : {public_ip}\n"
+        "DATE & TIME : {current_time}\n"
         "==============================\n",
         parse_mode='Markdown',
         reply_markup=main_keyboard
