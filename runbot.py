@@ -123,6 +123,7 @@ async def start(message: types.Message):
         f"(  ̳• · • ̳)        Version bot: 5.3   𓂃    ©  \n"
         f"/    づ♡ ♡  Author: Sofian-n  °  𓂃 ࣪ ˖  ִֶָ𐀔\n"
         f"==============================\n"
+        f"      ~=[ INGPO SERVER ]=~    \n"
         f"{log_content}"
         f"==============================\n",
         parse_mode='Markdown',
