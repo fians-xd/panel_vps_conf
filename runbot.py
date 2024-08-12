@@ -173,9 +173,9 @@ async def show_settings(query: types.CallbackQuery):
 
 #------------------------------------------------------------------------------------------------------------
 async def show_loading_bar(query, task_name):
-    msg = await bot.send_message(query.from_user.id, f"Proses {task_name} sedang berlangsung...")
+    msg = await bot.send_message(query.from_user.id, f"{task_name}: ")
     for i in range(1, 11):
-        await msg.edit_text(f"Proses {task_name} sedang berlangsung... [{create_bar(i * 10)}] {i * 10}%")
+        await msg.edit_text(f"{task_name}: [{create_bar(i * 10)}] {i * 10}%")
         await asyncio.sleep(0.5)
     return msg
 
