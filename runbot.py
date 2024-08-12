@@ -1,10 +1,15 @@
 import os
+import socket
 import logging
 import asyncio
+import platform
+import requests
 import subprocess
+from datetime import datetime
 from aiogram.utils import executor
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
 
 # Membaca token dari file ver.txt
 def get_api_token(file_path):
@@ -104,11 +109,48 @@ def create_bar(percentage, length=10):  # Bar length shortened for a more compac
 
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
+    # Ambil informasi sistem operasi
+    os_info = platform.platform()
+
+    # Ambil uptime
+    uptime = subprocess.check_output("uptime -p", shell=True).decode().strip()
+
+    # Ambil domain
+    try:
+        with open('/etc/xray/domain', 'r') as file:
+            domain = file.read().strip()
+    except FileNotFoundError:
+        domain = "Domain not found"
+
+    # Ambil IP publik
+    public_ip = requests.get('https://api.ipify.org').text
+
+    # Ambil informasi negara berdasarkan IP
+    country_info = requests.get(f'https://ipapi.co/{public_ip}/country_name/').text
+
+    # Ambil tanggal dan waktu saat ini
+    current_time = datetime.now().strftime('%a, %d %b %Y %H:%M:%S')
+
+    # Author informasi
+    author_info = "fian & lista"
+
+    # Format informasi server
+    server_info = (
+        f"OS          : {os_info}\n"
+        f"Uptime      : {uptime}\n"
+        f"Domain      : {domain}\n"
+        f"Country     : {country_info}\n"
+        f"Public IP   : {public_ip}\n"
+        f"DATE & TIME : {current_time}\n"
+    )
+
     await message.answer(
         "==============================\n"
         " ∧,,,∧  🧑‍💻 ADMIN PANEL SC 🧑‍💻  ^  ִֶָ𖦹\n"
         "(  ̳• · • ̳)        Version bot: 5.0   𓂃    ©  \n"
         "/    づ♡ ♡  Author: Sofian-n  °  𓂃 ࣪ ˖  ִֶָ𐀔\n"
+        "==============================\n"
+        f"{server_info}"
         "==============================\n",
         parse_mode='Markdown',
         reply_markup=main_keyboard
