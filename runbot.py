@@ -127,20 +127,15 @@ async def start(message: types.Message):
             domain = "Domain not found"
             logging.error("Domain file not found")
 
-        # Ambil IP publik dan informasi negara
+        # Ambil IP publik
         async with aiohttp.ClientSession() as session:
             try:
                 async with session.get('https://api.ipify.org') as response:
                     public_ip = await response.text()
                     logging.info(f"Public IP: {public_ip}")
-
-                async with session.get(f'https://ipapi.co/{public_ip}/country_name/') as response:
-                    country_info = await response.text()
-                    logging.info(f"Country: {country_info}")
             except Exception as e:
                 public_ip = "Error fetching IP"
-                country_info = "Error fetching country info"
-                logging.error(f"Error fetching public IP or country info: {e}")
+                logging.error(f"Error fetching public IP: {e}")
 
         # Ambil tanggal dan waktu saat ini
         current_time = datetime.now().strftime('%a, %d %b %Y %H:%M:%S')
@@ -155,7 +150,6 @@ async def start(message: types.Message):
             f"OS          : {os_info}\n"
             f"Uptime      : {uptime}\n"
             f"Domain      : {domain}\n"
-            f"Country     : {country_info}\n"
             f"Public IP   : {public_ip}\n"
             f"DATE & TIME : {current_time}\n"
             "==============================\n",
