@@ -137,12 +137,12 @@ async def start(message: types.Message):
         "(  ̳• · • ̳)        Version bot: 5.0   𓂃    ©  \n"
         "/    づ♡ ♡  Author: Sofian-n  °  𓂃 ࣪ ˖  ִֶָ𐀔\n"
         "==============================\n"
-        "OS          : {os_info}\n"
-        "Uptime      : {uptime}\n"
-        "Domain      : {domain}\n"
-        "Country     : {country_info}\n"
-        "Public IP   : {public_ip}\n"
-        "DATE & TIME : {current_time}\n"
+        f"OS          : {os_info}\n"
+        f"Uptime      : {uptime}\n"
+        f"Domain      : {domain}\n"
+        f"Country     : {country_info}\n"
+        f"Public IP   : {public_ip}\n"
+        f"DATE & TIME : {current_time}\n"
         "==============================\n",
         parse_mode='Markdown',
         reply_markup=main_keyboard
