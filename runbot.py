@@ -166,12 +166,34 @@ async def handle_type(query: types.CallbackQuery):
 
 @dp.callback_query_handler(lambda c: c.data == 'settings')
 async def show_settings(query: types.CallbackQuery):
+    await query.message.edit_reply_markup(reply_markup=None)
     await query.message.edit_text("‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
     await query.answer()
+
+
+#------------------------------------------------------------------------------------------------------------
+async def show_loading_bar(query, task_name):
+    msg = await bot.send_message(query.from_user.id, f"Proses {task_name} sedang berlangsung...")
+    for i in range(1, 11):
+        await msg.edit_text(f"Proses {task_name} sedang berlangsung... [{create_bar(i * 10)}] {i * 10}%")
+        await asyncio.sleep(0.5)
+    return msg
+
+async def run_system_command(command):
+    process = await asyncio.create_subprocess_shell(
+        command,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE
+    )
+    stdout, stderr = await process.communicate()
+    return stdout.decode().strip(), stderr.decode().strip(), process.returncode
 
 @dp.callback_query_handler(lambda c: c.data in ['monitor', 'reboot', 'clear_cache', 'reset_all_service', 'set_autoreboot', 'status_service'])
 async def process_settings(query: types.CallbackQuery):
     action = query.data
+
+    # Hilangkan tombol sementara
+    await query.message.edit_reply_markup(reply_markup=None)
 
     if action == "monitor":
         cpu_usage = get_cpu_usage()
@@ -186,6 +208,7 @@ async def process_settings(query: types.CallbackQuery):
                                f"CPU Usage: {cpu_bar} {cpu_usage:.2f}%\n"                               
                                f"Swap Usage: {swap_bar} {swap_usage}%\n"
                                f"Memory Usage: {memory_bar} {memory_usage}%")
+        await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
 
     elif action == "reboot":
         await bot.send_message(query.from_user.id, "Ketik '/start' lagi setelah 5-10 detik, menunggu OS dimuat.!")
@@ -193,16 +216,13 @@ async def process_settings(query: types.CallbackQuery):
         os.system("reboot")
 
     elif action == "clear_cache":
-        os.system("apt-get autoremove -y && apt-get autoclean -y")
-        await bot.send_message(query.from_user.id, "Selesai membersihkan sampah.!")
-
-    elif action == "set_autoreboot":
-        os.system("(crontab -l ; echo '0 0 * * * /sbin/reboot') | crontab -")
-        await bot.send_message(query.from_user.id, "VPS ini akan reboot otomatis setiap 24 jam sekali.")
+        loading_msg = await show_loading_bar(query, 'Clear Cache')
+        await run_system_command('sync; echo 1 > /proc/sys/vm/drop_caches')
+        await loading_msg.edit_text("Cache berhasil dihapus.")
+        await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
 
     elif action == "reset_all_service":
-        await bot.send_message(query.from_user.id, "Merestart semua layanan, mohon tunggu...")
-        
+        loading_msg = await show_loading_bar(query, 'Restart All Services')
         services = [
             '/etc/init.d/ssh restart',
             '/etc/init.d/dropbear restart',
@@ -221,38 +241,24 @@ async def process_settings(query: types.CallbackQuery):
             'screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500',
             'screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500'
         ]
-
-        for service in services:
-            process = subprocess.run(service, shell=True, capture_output=True, text=True)
-            if process.returncode != 0:
-                logging.error(f"Error while restarting service '{service}': {process.stderr.strip()}")
-        
-        await bot.send_message(query.from_user.id, "Semua layanan telah di restart.!")
+        await os.system(services)
+        await loading_msg.edit_text("Semua layanan berhasil di-restart.")
+        await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
 
     elif action == "status_service":
-        await bot.send_message(query.from_user.id, "Memindai status layanan...")
-        try:
-            # Jalankan skrip shell 'running'
-            subprocess.run('running', shell=True, check=True)
-        
-            # Baca hasil output dari file log
-            with open('/etc/status-service.log', 'r') as file:
-                status_log = file.read()
-                
-            await bot.send_message(query.from_user.id, f"{status_log}")
+        cmd = "running"
+        await run_system_command(cmd)
+        with open('/etc/status-service.log', 'r') as f:
+            log_data = f.read()
+        await bot.send_message(query.from_user.id, f"Status Service:\n{log_data}")
+        await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
 
-        except subprocess.CalledProcessError as e:
-            logging.error(f"Error while running the script: {e.stderr.strip()}")
-            await bot.send_message(query.from_user.id, "Terjadi kesalahan saat menjalankan skrip status layanan.")
+    elif action == "set_autoreboot":
+        await run_system_command("(crontab -l ; echo '0 5 * * * /sbin/shutdown -r now') | crontab -")
+        await bot.send_message(query.from_user.id, "Autoreboot telah di-set setiap hari pada jam 05:00.")
+        await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
+#---------------------------------------------------------------------------------------------------------------------------------
 
-        except FileNotFoundError:
-            await bot.send_message(query.from_user.id, "File log status layanan tidak ditemukan.")
-
-        except Exception as e:
-            logging.error(f"Exception occurred: {str(e)}")
-            await bot.send_message(query.from_user.id, f"Terjadi kesalahan: {str(e)}")
-
-    await query.answer()
 
 @dp.message_handler(lambda message: message.from_user.id in user_data and 'action' in user_data[message.from_user.id])
 async def handle_input(message: types.Message):
