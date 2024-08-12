@@ -120,7 +120,7 @@ async def start(message: types.Message):
     await message.answer(
         f"==============================\n"
         f" ∧,,,∧  🧑‍💻 ADMIN PANEL SC 🧑‍💻  ^  ִֶָ𖦹\n"
-        f"(  ̳• · • ̳)        Version bot: 5.0   𓂃    ©  \n"
+        f"(  ̳• · • ̳)        Version bot: 5.3   𓂃    ©  \n"
         f"/    づ♡ ♡  Author: Sofian-n  °  𓂃 ࣪ ˖  ִֶָ𐀔\n"
         f"==============================\n"
         f"{log_content}"
