@@ -1,9 +1,9 @@
 import os
 import socket
+import aiohttp
 import logging
 import asyncio
 import platform
-import requests
 import subprocess
 from datetime import datetime
 from aiogram.utils import executor
@@ -109,45 +109,68 @@ def create_bar(percentage, length=10):  # Bar length shortened for a more compac
 
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
-    # Ambil informasi sistem operasi
-    os_info = platform.platform()
-
-    # Ambil uptime
-    uptime = subprocess.check_output("uptime -p", shell=True).decode().strip()
-
-    # Ambil domain
     try:
-        with open('/etc/xray/domain', 'r') as file:
-            domain = file.read().strip()
-    except FileNotFoundError:
-        domain = "Domain not found"
+        # Ambil informasi sistem operasi
+        os_info = platform.platform()
+        logging.info(f"OS Info: {os_info}")
 
-    # Ambil IP publik
-    public_ip = requests.get('https://api.ipify.org').text
+        # Ambil uptime
+        uptime = subprocess.check_output("uptime -p", shell=True).decode().strip()
+        logging.info(f"Uptime: {uptime}")
 
-    # Ambil informasi negara berdasarkan IP
-    country_info = requests.get(f'https://ipapi.co/{public_ip}/country_name/').text
+        # Ambil domain
+        try:
+            with open('/etc/xray/domain', 'r') as file:
+                domain = file.read().strip()
+                logging.info(f"Domain: {domain}")
+        except FileNotFoundError:
+            domain = "Domain not found"
+            logging.error("Domain file not found")
 
-    # Ambil tanggal dan waktu saat ini
-    current_time = datetime.now().strftime('%a, %d %b %Y %H:%M:%S')
+        # Ambil IP publik dan informasi negara
+        async with aiohttp.ClientSession() as session:
+            try:
+                async with session.get('https://api.ipify.org') as response:
+                    public_ip = await response.text()
+                    logging.info(f"Public IP: {public_ip}")
 
-    await message.answer(
-        "==============================\n"
-        " ∧,,,∧  🧑‍💻 ADMIN PANEL SC 🧑‍💻  ^  ִֶָ𖦹\n"
-        "(  ̳• · • ̳)        Version bot: 5.0   𓂃    ©  \n"
-        "/    づ♡ ♡  Author: Sofian-n  °  𓂃 ࣪ ˖  ִֶָ𐀔\n"
-        "==============================\n"
-        f"OS          : {os_info}\n"
-        f"Uptime      : {uptime}\n"
-        f"Domain      : {domain}\n"
-        f"Country     : {country_info}\n"
-        f"Public IP   : {public_ip}\n"
-        f"DATE & TIME : {current_time}\n"
-        "==============================\n",
-        parse_mode='Markdown',
-        reply_markup=main_keyboard
-    )
+                async with session.get(f'https://ipapi.co/{public_ip}/country_name/') as response:
+                    country_info = await response.text()
+                    logging.info(f"Country: {country_info}")
+            except Exception as e:
+                public_ip = "Error fetching IP"
+                country_info = "Error fetching country info"
+                logging.error(f"Error fetching public IP or country info: {e}")
 
+        # Ambil tanggal dan waktu saat ini
+        current_time = datetime.now().strftime('%a, %d %b %Y %H:%M:%S')
+        logging.info(f"Current Time: {current_time}")
+
+        await message.answer(
+            "==============================\n"
+            " ∧,,,∧  🧑‍💻 ADMIN PANEL SC 🧑‍💻  ^  ִֶָ𖦹\n"
+            "(  ̳• · • ̳)        Version bot: 5.0   𓂃    ©  \n"
+            "/    づ♡ ♡  Author: Sofian-n  °  𓂃 ࣪ ˖  ִֶָ𐀔\n"
+            "==============================\n"
+            f"OS          : {os_info}\n"
+            f"Uptime      : {uptime}\n"
+            f"Domain      : {domain}\n"
+            f"Country     : {country_info}\n"
+            f"Public IP   : {public_ip}\n"
+            f"DATE & TIME : {current_time}\n"
+            "==============================\n",
+            parse_mode='Markdown',
+            reply_markup=main_keyboard
+        )
+
+    except Exception as e:
+        logging.error(f"An error occurred: {e}")
+        await message.answer(
+            "Terjadi kesalahan saat mencoba mendapatkan informasi server.",
+            parse_mode='Markdown',
+            reply_markup=main_keyboard
+        )
+        
 @dp.callback_query_handler(lambda c: c.data in protocol_map)
 async def handle_protocol(query: types.CallbackQuery):
     action = protocol_map.get(query.data)
