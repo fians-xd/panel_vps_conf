@@ -107,6 +107,10 @@ def create_bar(percentage, length=10):  # Bar length shortened for a more compac
     bar = '|' * filled_length + '-' * (length - filled_length)
     return bar
 
+def run_shell_command(command):
+    result = subprocess.run(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    return result.stdout.strip(), result.stderr.strip()
+
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
     try:
@@ -127,15 +131,9 @@ async def start(message: types.Message):
             domain = "Domain not found"
             logging.error("Domain file not found")
 
-        # Ambil IP publik
-        async with aiohttp.ClientSession() as session:
-            try:
-                async with session.get('https://api.ipify.org') as response:
-                    public_ip = await response.text()
-                    logging.info(f"Public IP: {public_ip}")
-            except Exception as e:
-                public_ip = "Error fetching IP"
-                logging.error(f"Error fetching public IP: {e}")
+        # Ambil info dari perintah shell
+        day, date, date2, ipvps, loc = run_shell_command('DAY=$(date +%A); DATE=$(date +%m/%d/%Y); DATE2=$(date -R | cut -d " " -f -5); IPVPS=$(curl -s ifconfig.me); LOC=$(curl -s ifconfig.co/country)')
+        logging.info(f"Date: {date}, Time: {date2}, IP: {ipvps}, Location: {loc}")
 
         # Ambil tanggal dan waktu saat ini
         current_time = datetime.now().strftime('%a, %d %b %Y %H:%M:%S')
@@ -150,7 +148,10 @@ async def start(message: types.Message):
             f"OS          : {os_info}\n"
             f"Uptime      : {uptime}\n"
             f"Domain      : {domain}\n"
-            f"Public IP   : {public_ip}\n"
+            f"Date        : {date}\n"
+            f"Time        : {date2}\n"
+            f"Public IP   : {ipvps}\n"
+            f"Location    : {loc}\n"
             f"DATE & TIME : {current_time}\n"
             "==============================\n",
             parse_mode='Markdown',
