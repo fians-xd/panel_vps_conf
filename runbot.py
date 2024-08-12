@@ -173,9 +173,9 @@ async def show_settings(query: types.CallbackQuery):
 
 #------------------------------------------------------------------------------------------------------------
 async def show_loading_bar(query, task_name):
-    msg = await bot.send_message(query.from_user.id, f"Proses {task_name}: ")
+    msg = await bot.send_message(query.from_user.id, f"Proses {task_name} sedang berlangsung...")
     for i in range(1, 11):
-        await msg.edit_text(f"Proses {task_name}: [{create_bar(i * 10)}] {i * 10}%")
+        await msg.edit_text(f"Proses {task_name} sedang berlangsung... [{create_bar(i * 10)}] {i * 10}%")
         await asyncio.sleep(0.5)
     return msg
 
@@ -223,25 +223,8 @@ async def process_settings(query: types.CallbackQuery):
 
     elif action == "reset_all_service":
         loading_msg = await show_loading_bar(query, 'Restart All Services')
-        services = [
-            '/etc/init.d/ssh restart',
-            '/etc/init.d/dropbear restart',
-            '/etc/init.d/stunnel4 restart',
-            '/etc/init.d/openvpn restart',
-            '/etc/init.d/fail2ban restart',
-            '/etc/init.d/cron restart',
-            '/etc/init.d/nginx restart',
-            '/etc/init.d/squid restart',
-            'systemctl restart xray',
-            'systemctl restart sshws.service',
-            'systemctl restart ws-dropbear.service',
-            'systemctl restart ws-stunnel.service',
-            'systemctl restart trojan-go.service',
-            'screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500',
-            'screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500',
-            'screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500'
-        ]
-        await os.system(services)
+        cxmd = "asuk"
+        await run_system_command(cxmd)
         await loading_msg.edit_text("Semua layanan berhasil di-restart.")
         await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
 
