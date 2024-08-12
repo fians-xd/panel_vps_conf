@@ -4,11 +4,25 @@ apt update
 apt install python3 python3-pip -y
 python3 -m pip install --upgrade pip
 python3 -m pip install aiogram==2.25.2
-git clone https://github.com/fians-xd/panel_vps_conf.git
-rm ver.txt
+
+# Creat Dir
+mkdir panel_vps_conf
+cd panel_vps_conf
+
+# Get tools
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/ssh.py
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialssh.py
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialtrojan.py
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvless.py
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvmess.py
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trojan.py
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vless.py
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vmess.py
 
 # Collect user inputs
 clear
+cd ..
 echo ""
 echo -e "\e[1;33m===============================\e[0m"
 echo -e "        Auth: @fians-xd"
@@ -52,9 +66,9 @@ END
 
 # Enable and start the service
 echo ""
-echo -e "\e[1;33m=======================================\e[0m"
+echo -e "\e[1;33m==========================================\e[0m"
 echo -e "Tunggu Menyelesaikan Pengaturan 10s Anj :v"
-echo -e "\e[1;33m=======================================\e[0m"
+echo -e "\e[1;33m==========================================\e[0m"
 sleep 0.5
 echo ""
 systemctl daemon-reload
@@ -69,9 +83,7 @@ echo -e "Installasi Telah Selesai, Klik /start Di Boot"
 echo -e "\e[1;33m==================================================\e[0m"
 read -n 1 -s -r -p "Tekan Enter Untuk Reboot System: "
 
-rm /panel_vps_conf/install.sh
-rm /panel_vps_conf/README.md
-rm -rf /panel_vps_conf/.git
+
 apt autoremove -y
 pip3 cache purge
 rm install.sh
