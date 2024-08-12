@@ -109,12 +109,22 @@ def create_bar(percentage, length=10):  # Bar length shortened for a more compac
 
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
+    # Jalankan script shell untuk memperbarui log
+    subprocess.run(['ingpo'], check=True)
+
+    # Baca hasil log
+    with open('/etc/ingpo.log', 'r') as log_file:
+        log_content = log_file.read()
+
+    # Kirim pesan dengan isi log
     await message.answer(
-        "==============================\n"
-        " ∧,,,∧  🧑‍💻 ADMIN PANEL SC 🧑‍💻  ^  ִֶָ𖦹\n"
-        "(  ̳• · • ̳)        Version bot: 5.0   𓂃    ©  \n"
-        "/    づ♡ ♡  Author: Sofian-n  °  𓂃 ࣪ ˖  ִֶָ𐀔\n"
-        "==============================\n",
+        f"==============================\n"
+        f" ∧,,,∧  🧑‍💻 ADMIN PANEL SC 🧑‍💻  ^  ִֶָ𖦹\n"
+        f"(  ̳• · • ̳)        Version bot: 5.0   𓂃    ©  \n"
+        f"/    づ♡ ♡  Author: Sofian-n  °  𓂃 ࣪ ˖  ִֶָ𐀔\n"
+        f"==============================\n"
+        f"{log_content}"
+        f"==============================\n",
         parse_mode='Markdown',
         reply_markup=main_keyboard
     )
