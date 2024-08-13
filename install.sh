@@ -26,7 +26,7 @@ cd ..
 echo ""
 echo -e "\e[1;33m===============================\e[0m"
 echo -e "        Auth: @fians-xd"
-echo -e "       Boot Version: 5.0"
+echo -e "       Boot Version: 5.3"
 echo -e "\e[1;33m===============================\e[0m"
 read -e -p "[*] Input your Bot Token: " bottoken
 read -e -p "[*] Input Your Id Telegram: " admin
