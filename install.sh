@@ -6,8 +6,8 @@ python3 -m pip install --upgrade pip
 python3 -m pip install aiogram==2.25.2
 
 # Creat Dir
-mkdir panel_vps_conf
-cd panel_vps_conf
+mkdir .panel_vps_conf
+cd .panel_vps_conf
 
 # Get tools
 wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py
@@ -31,9 +31,9 @@ echo -e "\e[1;33m===============================\e[0m"
 read -e -p "[*] Input your Bot Token: " bottoken
 read -e -p "[*] Input Your Id Telegram: " admin
 read -e -p "[*] Input Your Subdomain: " domain
-echo -e "$bottoken" > /root/panel_vps_conf/ver.txt
-echo -e "$admin" >> /root/panel_vps_conf/ver.txt
-echo -e "$domain" >> /root/panel_vps_conf/ver.txt
+echo -e "$bottoken" > /root/.panel_vps_conf/ver.txt
+echo -e "$admin" >> /root/.panel_vps_conf/ver.txt
+echo -e "$domain" >> /root/.panel_vps_conf/ver.txt
 
 # Display configuration summary
 clear
@@ -55,8 +55,8 @@ Description=Simple Telenel - @yansxd
 After=network.target
 
 [Service]
-WorkingDirectory=/root/panel_vps_conf
-ExecStart=/usr/bin/python3 /root/panel_vps_conf/runbot.py
+WorkingDirectory=/root/.panel_vps_conf
+ExecStart=/usr/bin/python3 /root/.panel_vps_conf/runbot.py
 Restart=always
 User=root
 
