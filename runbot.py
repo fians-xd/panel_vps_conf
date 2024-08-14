@@ -102,7 +102,7 @@ def get_cpu_usage():
             usage = (total - idle) / total * 100
             return usage
 
-def create_bar(percentage, length=10):  # Bar length shortened for a more compact display
+def create_bar(percentage, length=10):
     filled_length = int(length * percentage // 100)
     bar = '|' * filled_length + '-' * (length - filled_length)
     return bar
