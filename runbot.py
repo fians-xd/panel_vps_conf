@@ -240,7 +240,7 @@ async def process_settings(query: types.CallbackQuery):
                                f"CPU Usage: {cpu_bar} {cpu_usage:.2f}%\n"                               
                                f"Swap Usage: {swap_bar} {swap_usage}%\n"
                                f"Memory Usage: {memory_bar} {memory_usage}%")
-        await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
+        #await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
 
     elif action == "reboot":
         await bot.send_message(query.from_user.id, "Get '/start' After 5-10 seconds, Wait for the OS to load.!")
@@ -251,14 +251,14 @@ async def process_settings(query: types.CallbackQuery):
         loading_msg = await show_loading_bar(query, 'Clear Cache')
         await run_system_command('sync; echo 1 > /proc/sys/vm/drop_caches')
         await loading_msg.edit_text("Cache cleared successfully.!")
-        await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
+        #await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
 
     elif action == "reset_all_service":
         loading_msg = await show_loading_bar(query, 'Restart All Services')
         cxmd = "asuk"
         await run_system_command(cxmd)
         await loading_msg.edit_text("All services restarted successfully.!")
-        await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
+        #await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
 
     elif action == "status_service":
         cmd = "running"
@@ -266,12 +266,12 @@ async def process_settings(query: types.CallbackQuery):
         with open('/etc/status-service.log', 'r') as f:
             log_data = f.read()
         await bot.send_message(query.from_user.id, f"{log_data}")
-        await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
+        #await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
 
     elif action == "set_autoreboot":
         await run_system_command("(crontab -l ; echo '0 5 * * * /sbin/shutdown -r now') | crontab -")
         await bot.send_message(query.from_user.id, "Autoreboot telah di-set setiap hari pada jam 05:00")
-        await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
+        #await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
 
 #---------------------------------------------------------------------------------------------------------------------------------
 
