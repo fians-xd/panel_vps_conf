@@ -287,7 +287,7 @@ async def handle_input(message: types.Message):
     if 'username' not in user_data[user_id]:
         # Validate username length
         if len(input_text) < 6:
-            await message.reply('Minimal 6 Huruf Njirr.')
+            await message.reply('Minimal 6 Huruf Njirr.!')
             return
         
         user_data[user_id]['username'] = input_text
@@ -300,7 +300,7 @@ async def handle_input(message: types.Message):
     if action == 'start_ssh_creation' and 'password' not in user_data[user_id]:
         # Validate password length and content
         if len(input_text) < 6 or not re.search(r'\d', input_text) and not re.search(r'[^\w\s]', input_text):
-            await message.reply('Minimal 6 huruf dan harus ada minimal satu angka atau karakter khusus.')
+            await message.reply('Minimal 6 huruf dan harus ada satu angka atau karakter khusus.')
             return
         
         user_data[user_id]['password'] = input_text
@@ -310,7 +310,7 @@ async def handle_input(message: types.Message):
     if 'expiry' not in user_data[user_id]:
         # Validate expiry input
         if not input_text.isdigit():
-            await message.reply('Input angka jancok.')
+            await message.reply('Input angka jancok.!')
             return
         
         user_data[user_id]['expiry'] = input_text
