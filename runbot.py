@@ -123,7 +123,7 @@ async def start(message: types.Message):
     user_id = message.from_user.id
     
     if not is_user_id_allowed(user_id):
-        await message.answer("Izin dulu cah ganteng, japri: wa.me/6285788962287")
+        await message.answer("Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
         return
 
     # Jalankan script shell untuk memperbarui log
