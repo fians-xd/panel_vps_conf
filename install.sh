@@ -32,7 +32,7 @@ read -e -p "[*] Input your Bot Token: " bottoken
 read -e -p "[*] Input Your Id Telegram: " admin
 read -e -p "[*] Input Your Subdomain: " domain
 echo -e "$bottoken" > /root/.panel_vps_conf/ver.txt
-echo -e "$admin" >> /root/.panel_vps_conf/ver.txt
+echo -e "$admin" >> /root/list_id.txt
 echo -e "$domain" >> /root/.panel_vps_conf/ver.txt
 
 # Display configuration summary
