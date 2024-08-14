@@ -1,3 +1,4 @@
+import re
 import os
 import socket
 import aiohttp
@@ -275,7 +276,6 @@ async def process_settings(query: types.CallbackQuery):
 
 #---------------------------------------------------------------------------------------------------------------------------------
 
-
 @dp.message_handler(lambda message: message.from_user.id in user_data and 'action' in user_data[message.from_user.id])
 async def handle_input(message: types.Message):
     user_id = message.from_user.id
@@ -285,6 +285,11 @@ async def handle_input(message: types.Message):
     logging.info(f'Handling input: user_id={user_id}, action={action}, input_text={input_text}')
 
     if 'username' not in user_data[user_id]:
+        # Validate username length
+        if len(input_text) < 6:
+            await message.reply('Minimal 6 Huruf Njirr.')
+            return
+        
         user_data[user_id]['username'] = input_text
         if action == 'start_ssh_creation':
             await message.reply('Masukkan Password Akun SSH:')
@@ -293,11 +298,21 @@ async def handle_input(message: types.Message):
         return
 
     if action == 'start_ssh_creation' and 'password' not in user_data[user_id]:
+        # Validate password length and content
+        if len(input_text) < 6 or not re.search(r'\d', input_text) and not re.search(r'[^\w\s]', input_text):
+            await message.reply('Minimal 6 huruf dan harus ada minimal satu angka atau karakter khusus.')
+            return
+        
         user_data[user_id]['password'] = input_text
         await message.reply('Masukkan Berapa Lama Xpired SSH contoh (1,2,3 dll):')
         return
 
     if 'expiry' not in user_data[user_id]:
+        # Validate expiry input
+        if not input_text.isdigit():
+            await message.reply('Input angka jancok.')
+            return
+        
         user_data[user_id]['expiry'] = input_text
 
     username = user_data[user_id].get('username')
