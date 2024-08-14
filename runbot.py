@@ -107,8 +107,25 @@ def create_bar(percentage, length=10):  # Bar length shortened for a more compac
     bar = '|' * filled_length + '-' * (length - filled_length)
     return bar
 
+def is_user_id_allowed(user_id):
+    allowed_ids_path = '/root/list_id.txt'
+    if not os.path.exists(allowed_ids_path):
+        logging.error(f"File {allowed_ids_path} tidak ditemukan.")
+        return False
+    
+    with open(allowed_ids_path, 'r') as file:
+        allowed_ids = file.read().splitlines()
+    
+    return str(user_id) in allowed_ids
+
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
+    user_id = message.from_user.id
+    
+    if not is_user_id_allowed(user_id):
+        await message.answer("Izin dulu cah ganteng, japri: wa.me/6285788962287")
+        return
+
     # Jalankan script shell untuk memperbarui log
     subprocess.run(['ingpo'], check=True)
 
