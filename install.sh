@@ -3,7 +3,7 @@
 apt update
 apt install python3 python3-pip -y
 python3 -m pip install --upgrade pip
-python3 -m pip install tabulate aiogram==2.25.2
+python3 -m pip install aiogram==2.25.2
 
 # Creat Dir
 mkdir .panel_vps_conf
@@ -32,7 +32,7 @@ read -e -p "[*] Input your Bot Token: " bottoken
 read -e -p "[*] Input Your Id Telegram: " admin
 read -e -p "[*] Input Your Subdomain: " domain
 echo -e "$bottoken" > /root/.panel_vps_conf/ver.txt
-echo -e "$admin" >> /root/list_id.txt
+echo -e "admin: $admin" >> /root/list_id.txt
 echo -e "$domain" >> /root/.panel_vps_conf/ver.txt
 
 # Display configuration summary
@@ -82,7 +82,6 @@ echo -e "\e[1;33m==================================================\e[0m"
 echo -e "Installasi Telah Selesai, Klik /start Di Boot"
 echo -e "\e[1;33m==================================================\e[0m"
 read -n 1 -s -r -p "Tekan Enter Untuk Reboot System: "
-
 
 apt autoremove -y
 pip3 cache purge
