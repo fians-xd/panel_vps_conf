@@ -108,22 +108,29 @@ def create_bar(percentage, length=10):
     bar = '|' * filled_length + '-' * (length - filled_length)
     return bar
 
-def is_user_id_allowed(user_id):
+def is_id_allowed(chat_or_user_id):
     allowed_ids_path = '/root/list_id.txt'
+    
     if not os.path.exists(allowed_ids_path):
         logging.error(f"File {allowed_ids_path} tidak ditemukan.")
         return False
     
+    allowed_ids = set()  # Menggunakan set untuk menyimpan ID agar pencarian lebih efisien
     with open(allowed_ids_path, 'r') as file:
-        allowed_ids = file.read().splitlines()
+        for line in file:
+            # Gunakan regex untuk mencari angka positif dan negatif di dalam baris
+            ids_in_line = re.findall(r'-?\d+', line)
+            allowed_ids.update(ids_in_line)  # Tambahkan semua angka ke dalam set
     
-    return str(user_id) in allowed_ids
+    return str(chat_or_user_id) in allowed_ids
 
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
     user_id = message.from_user.id
+    chat_id = message.chat.id
     
-    if not is_user_id_allowed(user_id):
+    # Cek apakah user_id atau chat_id diperbolehkan
+    if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
         await message.answer("Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
         return
 
