@@ -3,7 +3,7 @@
 apt update
 apt install python3 python3-pip -y
 python3 -m pip install --upgrade pip
-python3 -m pip install aiogram==2.25.2
+python3 -m pip install tabulate aiogram==2.25.2
 
 # Creat Dir
 mkdir .panel_vps_conf
