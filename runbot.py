@@ -130,7 +130,7 @@ def is_id_allowed(chat_or_user_id):
 async def start(message: types.Message):
     user_id = message.from_user.id
     chat_id = message.chat.id
-    
+
     # Cek apakah user_id atau chat_id diperbolehkan
     if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
         await message.answer("Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
@@ -143,21 +143,13 @@ async def start(message: types.Message):
     with open('/etc/ingpo.log', 'r') as log_file:
         log_content = log_file.read()
 
-    # Hitung jumlah pengguna dari konfigurasi
-    def count_users(pattern):
-        result = subprocess.run(['grep', '-c', pattern, '/etc/xray/config.json'], capture_output=True, text=True)
-        return int(result.stdout.strip())
+    # Cek jumlah user
+    ssh_count = subprocess.getoutput("awk -F: '$3 >= 1000 && $1 != \"nobody\" {print $1}' /etc/passwd | wc -l")
+    vmess_count = subprocess.getoutput("cat /etc/xray/config.json | grep '^###' | cut -d ' ' -f 2 | sort | uniq | wc -l")
+    vless_count = subprocess.getoutput("cat /etc/xray/config.json | grep '^#&' | cut -d ' ' -f 2 | sort | uniq | wc -l")
+    trojan_count = subprocess.getoutput("cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sort | uniq | wc -l")
 
-    def count_ssh_users():
-        result = subprocess.run(['awk', '-F:', '$3 >= 1000 && $1 != "nobody" {print $1}', '/etc/passwd', '|', 'wc', '-l'], capture_output=True, text=True, shell=True)
-        return int(result.stdout.strip())
-
-    vmess_count = count_users(r'^###')
-    vless_count = count_users(r'^#&')
-    trojan_count = count_users(r'^#!')
-    ssh_count = count_ssh_users()
-
-    # Kirim pesan dengan isi log dan jumlah pengguna
+    # Kirim pesan dengan isi log
     await message.answer(
         f"==============================\n"
         f" ∧,,,∧  🧑‍💻 ADMIN PANEL SC 🧑‍💻  ^  ִֶָ𖦹\n"
