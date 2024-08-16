@@ -53,8 +53,8 @@ echo -e "      Data Telah Disimpan"
 echo -e "\e[1;33m===============================\e[0m"
 echo -e "Bot Token     : $bottoken"
 echo -e "Id Telegram   : $admin"
-echo -e "Subdomain     : $domain"
 echo -e "\e[1;33m===============================\e[0m"
+sleep 0.7
 clear
 
 # Create systemd service
