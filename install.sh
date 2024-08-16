@@ -33,12 +33,10 @@ echo -e "\e[1;33m===============================\e[0m"
 echo -e "        Auth: @fians-xd"
 echo -e "       Boot Version: 5.3"
 echo -e "\e[1;33m===============================\e[0m"
-read -e -p "[*] Input Your Domain: " domain
 read -e -p "[*] Input your Bot Token: " bottoken
 read -e -p "[*] Input Your Id Telegram: " admin
 echo -e "$bottoken" > /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/ver.txt
 echo -e "admin: $admin" >> /root/list_id.txt
-echo -e "$domain" >> /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/ver.txt
 
 # Display configuration summary
 clear
