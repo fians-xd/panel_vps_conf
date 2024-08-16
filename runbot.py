@@ -286,6 +286,14 @@ async def process_settings(query: types.CallbackQuery):
 @dp.message_handler(lambda message: message.from_user.id in user_data and 'action' in user_data[message.from_user.id])
 async def handle_input(message: types.Message):
     user_id = message.from_user.id
+    chat_id = message.chat.id
+    
+    # Cek apakah user_id atau chat_id diperbolehkan
+    if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
+        await message.answer("Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+        return
+
+    user_id = message.from_user.id
     action = user_data[user_id]['action']
     input_text = message.text
 
