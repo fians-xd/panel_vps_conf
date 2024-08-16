@@ -143,7 +143,21 @@ async def start(message: types.Message):
     with open('/etc/ingpo.log', 'r') as log_file:
         log_content = log_file.read()
 
-    # Kirim pesan dengan isi log
+    # Hitung jumlah pengguna dari konfigurasi
+    def count_users(pattern):
+        result = subprocess.run(['grep', '-c', pattern, '/etc/xray/config.json'], capture_output=True, text=True)
+        return int(result.stdout.strip())
+
+    def count_ssh_users():
+        result = subprocess.run(['awk', '-F:', '$3 >= 1000 && $1 != "nobody" {print $1}', '/etc/passwd', '|', 'wc', '-l'], capture_output=True, text=True, shell=True)
+        return int(result.stdout.strip())
+
+    vmess_count = count_users(r'^###')
+    vless_count = count_users(r'^#&')
+    trojan_count = count_users(r'^#!')
+    ssh_count = count_ssh_users()
+
+    # Kirim pesan dengan isi log dan jumlah pengguna
     await message.answer(
         f"==============================\n"
         f" ∧,,,∧  🧑‍💻 ADMIN PANEL SC 🧑‍💻  ^  ִֶָ𖦹\n"
@@ -151,6 +165,10 @@ async def start(message: types.Message):
         f"/    づ♡ ♡  Author: Sofian-N  °  𓂃 ࣪ ˖  ִֶָ𐀔\n"
         f"==============================\n"
         f"{log_content}"
+        f"==============================\n"
+        f"                           TOTAL AKUN\n"
+        f"       ssh: {ssh_count}   vmess: {vmess_count}\n"
+        f"       vless: {vless_count}   trojan: {trojan_count}\n"
         f"==============================\n",
         parse_mode='Markdown',
         reply_markup=main_keyboard
