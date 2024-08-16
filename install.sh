@@ -11,6 +11,10 @@ mkdir /mnt/datd
 mkdir /mnt/datd/layer
 mkdir /mnt/systemdire
 mkdir /mnt/configur
+mkdir /mnt/layers
+mkdir /mnt/prock
+mkdir /mnt/.configuring
+mkdir /mnt/.config
 
 cd /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
 
