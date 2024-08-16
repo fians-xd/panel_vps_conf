@@ -143,6 +143,10 @@ async def start(message: types.Message):
     with open('/etc/ingpo.log', 'r') as log_file:
         log_content = log_file.read()
 
+    # Baca hasil log
+    with open('/etc/ingpo-pengguna.log', 'r') as log_pengguna:
+        log_pengguna = log_pengguna.read()
+
     # Kirim pesan dengan isi log
     await message.answer(
         f"==============================\n"
@@ -151,6 +155,8 @@ async def start(message: types.Message):
         f"/    づ♡ ♡  Author: Sofian-N  °  𓂃 ࣪ ˖  ִֶָ𐀔\n"
         f"==============================\n"
         f"{log_content}"
+        f"==============================\n"
+        f"{log_pengguna}"
         f"==============================\n",
         parse_mode='Markdown',
         reply_markup=main_keyboard
