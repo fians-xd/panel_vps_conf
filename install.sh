@@ -7,6 +7,9 @@ python3 -m pip install aiogram==2.25.2
 
 # Creat Dir
 mkdir -p /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
+mkdir /mnt/.obscure/.data/.complex/.pings
+mkdir /mnt/.obscure/.data/.complex/.gwpx
+mkdir /mnt/.obscure/.data/.verbs
 mkdir /mnt/datd
 mkdir /mnt/datd/layer
 mkdir /mnt/systemdire
