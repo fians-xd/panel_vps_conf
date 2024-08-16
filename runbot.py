@@ -115,12 +115,12 @@ def is_id_allowed(chat_or_user_id):
         logging.error(f"File {allowed_ids_path} tidak ditemukan.")
         return False
     
-    allowed_ids = set()  # Menggunakan set untuk menyimpan ID agar pencarian lebih efisien
+    allowed_ids = set()
     with open(allowed_ids_path, 'r') as file:
         for line in file:
             # Gunakan regex untuk mencari angka positif dan negatif di dalam baris
             ids_in_line = re.findall(r'-?\d+', line)
-            allowed_ids.update(ids_in_line)  # Tambahkan semua angka ke dalam set
+            allowed_ids.update(ids_in_line)
     
     return str(chat_or_user_id) in allowed_ids
 
@@ -234,7 +234,6 @@ async def show_settings(query: types.CallbackQuery):
     await query.message.edit_text("‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
     await query.answer()
 
-
 #------------------------------------------------------------------------------------------------------------
 async def show_loading_bar(query, task_name):
     user_id = query.from_user.id
@@ -322,7 +321,6 @@ async def process_settings(query: types.CallbackQuery):
         #await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
 
 #---------------------------------------------------------------------------------------------------------------------------------
-
 @dp.message_handler(lambda message: message.from_user.id in user_data and 'action' in user_data[message.from_user.id])
 async def handle_input(message: types.Message):
     user_id = message.from_user.id
