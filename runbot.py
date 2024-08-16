@@ -18,7 +18,7 @@ def get_api_token(file_path):
         return file.readline().strip()
 
 # Path ke file ver.txt
-file_path = 'ver.txt'
+file_path = '/mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/ver.txt'
 API_TOKEN = get_api_token(file_path)
 
 # Konfigurasi logging
