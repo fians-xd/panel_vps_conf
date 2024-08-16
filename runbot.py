@@ -156,6 +156,14 @@ async def start(message: types.Message):
         
 @dp.callback_query_handler(lambda c: c.data in protocol_map)
 async def handle_protocol(query: types.CallbackQuery):
+    user_id = query.from_user.id
+    chat_id = query.message.chat.id
+    
+    # Cek apakah user_id atau chat_id diperbolehkan
+    if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
+        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+        return
+
     action = protocol_map.get(query.data)
     if action:
         user_data[query.from_user.id] = {'action': action}
@@ -171,6 +179,14 @@ async def handle_protocol(query: types.CallbackQuery):
 
 @dp.callback_query_handler(lambda c: c.data.endswith('_live') or c.data.endswith('_trial'))
 async def handle_type(query: types.CallbackQuery):
+    user_id = query.from_user.id
+    chat_id = query.message.chat.id
+    
+    # Cek apakah user_id atau chat_id diperbolehkan
+    if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
+        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+        return
+
     protocol_key, account_type = query.data.rsplit('_', 1)
     action = protocol_map.get(protocol_key)
 
@@ -206,6 +222,14 @@ async def handle_type(query: types.CallbackQuery):
 
 @dp.callback_query_handler(lambda c: c.data == 'settings')
 async def show_settings(query: types.CallbackQuery):
+    user_id = query.from_user.id
+    chat_id = query.message.chat.id
+    
+    # Cek apakah user_id atau chat_id diperbolehkan
+    if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
+        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+        return
+
     await query.message.edit_reply_markup(reply_markup=None)
     await query.message.edit_text("‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
     await query.answer()
@@ -213,6 +237,14 @@ async def show_settings(query: types.CallbackQuery):
 
 #------------------------------------------------------------------------------------------------------------
 async def show_loading_bar(query, task_name):
+    user_id = query.from_user.id
+    chat_id = query.message.chat.id
+    
+    # Cek apakah user_id atau chat_id diperbolehkan
+    if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
+        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+        return
+
     msg = await bot.send_message(query.from_user.id, f"{task_name}: ")
     for i in range(1, 11):
         await msg.edit_text(f"{task_name}: [{create_bar(i * 10)}] {i * 10}%")
@@ -230,6 +262,14 @@ async def run_system_command(command):
 
 @dp.callback_query_handler(lambda c: c.data in ['monitor', 'reboot', 'clear_cache', 'reset_all_service', 'set_autoreboot', 'status_service'])
 async def process_settings(query: types.CallbackQuery):
+    user_id = query.from_user.id
+    chat_id = query.message.chat.id
+    
+    # Cek apakah user_id atau chat_id diperbolehkan
+    if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
+        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+        return
+
     action = query.data
 
     # Hilangkan tombol sementara
@@ -290,7 +330,7 @@ async def handle_input(message: types.Message):
     
     # Cek apakah user_id atau chat_id diperbolehkan
     if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
-        await message.answer("Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+        await message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
         return
 
     user_id = message.from_user.id
@@ -338,8 +378,22 @@ async def handle_input(message: types.Message):
     if script:
         try:
             if action == 'start_ssh_creation':
-                args = ['python3', script, username, password, expiry_days]
+                    user_id = message.from_user.id
+                    chat_id = message.chat.id
+    
+                    # Cek apakah user_id atau chat_id diperbolehkan
+                    if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
+                        await message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+                        return
+                    args = ['python3', script, username, password, expiry_days]
             else:
+                user_id = message.from_user.id
+                chat_id = message.chat.id
+    
+                # Cek apakah user_id atau chat_id diperbolehkan
+                if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
+                        await message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+                        return
                 args = ['python3', script, username, expiry_days]
                 
             process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
