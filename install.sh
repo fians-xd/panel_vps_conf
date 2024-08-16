@@ -6,8 +6,13 @@ python3 -m pip install --upgrade pip
 python3 -m pip install aiogram==2.25.2
 
 # Creat Dir
-mkdir .panel_vps_conf
-cd .panel_vps_conf
+mkdir -p /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
+mkdir /mnt/datd
+mkdir /mnt/datd/layer
+mkdir /mnt/systemdire
+mkdir /mnt/configur
+
+cd /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
 
 # Get tools
 wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py
@@ -22,7 +27,7 @@ wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vmess.py
 
 # Collect user inputs
 clear
-cd ..
+cd
 echo ""
 echo -e "\e[1;33m===============================\e[0m"
 echo -e "        Auth: @fians-xd"
@@ -31,9 +36,9 @@ echo -e "\e[1;33m===============================\e[0m"
 read -e -p "[*] Input Your Domain: " domain
 read -e -p "[*] Input your Bot Token: " bottoken
 read -e -p "[*] Input Your Id Telegram: " admin
-echo -e "$bottoken" > /root/.panel_vps_conf/ver.txt
+echo -e "$bottoken" > /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/ver.txt
 echo -e "admin: $admin" >> /root/list_id.txt
-echo -e "$domain" >> /root/.panel_vps_conf/ver.txt
+echo -e "$domain" >> /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/ver.txt
 
 # Display configuration summary
 clear
@@ -55,8 +60,8 @@ Description=Simple Telenel - @yansxd
 After=network.target
 
 [Service]
-WorkingDirectory=/root/.panel_vps_conf
-ExecStart=/usr/bin/python3 /root/.panel_vps_conf/runbot.py
+WorkingDirectory=/mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
+ExecStart=/usr/bin/python3 /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/runbot.py
 Restart=always
 User=root
 
