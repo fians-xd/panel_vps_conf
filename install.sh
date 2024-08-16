@@ -28,9 +28,9 @@ echo -e "\e[1;33m===============================\e[0m"
 echo -e "        Auth: @fians-xd"
 echo -e "       Boot Version: 5.3"
 echo -e "\e[1;33m===============================\e[0m"
+read -e -p "[*] Input Your Domain: " domain
 read -e -p "[*] Input your Bot Token: " bottoken
 read -e -p "[*] Input Your Id Telegram: " admin
-read -e -p "[*] Input Your Subdomain: " domain
 echo -e "$bottoken" > /root/.panel_vps_conf/ver.txt
 echo -e "admin: $admin" >> /root/list_id.txt
 echo -e "$domain" >> /root/.panel_vps_conf/ver.txt
