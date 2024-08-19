@@ -5,16 +5,19 @@ apt update
 #python3 -m pip install --upgrade pip
 #python3 -m pip install aiogram==2.25.2
 
-# Memeriksa distribusi dan versi OS
-OS_NAME=$(lsb_release -is)
-OS_VERSION=$(lsb_release -rs)
-
 # Versi yang diinginkan
 PYTHON_VERSION="3.8.10"
 PIP_VERSION="24.2"
 AIAGRAM_VERSION="2.25.2"
 SUPPORTED_DEBIAN_VERSION="10"
 SUPPORTED_UBUNTU_VERSION="20.04"
+
+# Fungsi untuk menghapus Python dan pip yang ada
+remove_existing_python_and_pip() {
+    echo "Menghapus instalasi Python dan pip yang ada..."
+    sudo apt-get remove --purge -y python3 python3-pip python3-venv python3-dev
+    sudo apt autoremove -y
+}
 
 # Fungsi untuk menginstal Python versi tertentu dari sumber
 install_python_from_source() {
@@ -51,6 +54,9 @@ install_pip_version() {
 
 # Fungsi untuk menginstal Python dan pip versi tertentu
 install_python_and_pip() {
+    # Hapus instalasi Python dan pip yang ada
+    remove_existing_python_and_pip
+
     # Cek apakah Python 3.8.10 sudah terinstal
     if ! python3.8 --version | grep -q "$PYTHON_VERSION"; then
         install_python_from_source
@@ -87,7 +93,7 @@ install_with_venv() {
 install_with_pip() {
     echo "Menginstal paket menggunakan pip langsung..."
     # Menginstal aiogram
-    pip3 install aiogram==$AIAGRAM_VERSION
+    python3.8 -m pip install aiogram==$AIAGRAM_VERSION
 
     echo "Instalasi selesai menggunakan pip."
 }
@@ -96,6 +102,9 @@ install_with_pip() {
 install_python_and_pip
 
 # Memeriksa dan menginstal berdasarkan OS dan versi
+OS_NAME=$(lsb_release -is)
+OS_VERSION=$(lsb_release -rs)
+
 if [ "$OS_NAME" = "Debian" ] && [ "$OS_VERSION" = "$SUPPORTED_DEBIAN_VERSION" ]; then
     echo "OS Debian 10 terdeteksi. Menginstal menggunakan pip langsung."
     install_with_pip
@@ -107,6 +116,7 @@ else
     install_with_venv
 fi
 
+pip3 install aiogram==2.25.2
 # Creat Dir
 mkdir -p /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
 mkdir /mnt/.obscure/.data/.complex/.pings
