@@ -186,7 +186,7 @@ async def handle_protocol(query: types.CallbackQuery):
         keyboard.add(
             InlineKeyboardButton("【 Live Akun 】", callback_data=f'{query.data}_live'),
             InlineKeyboardButton("【 Trial Akun 】", callback_data=f'{query.data}_trial'),
-            InlineKeyboardButton("【 Cek Login 】", callback_data=f'{query.data}_login')
+            InlineKeyboardButton("【 Cek User Login Akun 】", callback_data=f'{query.data}_login')
         )
         await query.message.edit_text(text="‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  PILIH TIPE AKUN  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=keyboard)
         await query.answer()
@@ -268,7 +268,7 @@ async def show_settings(query: types.CallbackQuery):
         return
 
     await query.message.edit_reply_markup(reply_markup=None)
-    await query.message.edit_text("‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
+    await query.message.edit_text("‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎ ‎‎ ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
     await query.answer()
 
 #------------------------------------------------------------------------------------------------------------
