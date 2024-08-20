@@ -21,7 +21,7 @@ def create_vless_account():
         try:
             with open('/etc/log-create-vless-trial-clean.log', 'r') as file:
                 log_content = file.read()
-            return f'Vless Account created:\n\n{log_content}'
+            return f'{log_content}'
         except FileNotFoundError:
             logger.error('Log file not found.')
             return 'Log file not found.'
