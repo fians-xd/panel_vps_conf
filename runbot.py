@@ -388,8 +388,8 @@ async def handle_input(message: types.Message):
 
     if action == 'start_ssh_creation' and 'password' not in user_data[user_id]:
         # Validate password length and content
-        if len(input_text) < 6 or not re.search(r'\d', input_text) and not re.search(r'[^\w\s]', input_text):
-            await message.reply('Minimal 6 huruf dan harus ada satu angka atau karakter khusus.')
+        if len(input_text) < 4 or not re.search(r'\d', input_text) and not re.search(r'[^\w\s]', input_text):
+            await message.reply('Minimal 4 huruf dan harus ada satu angka atau karakter khusus.')
             return
         
         user_data[user_id]['password'] = input_text
