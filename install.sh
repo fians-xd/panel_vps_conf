@@ -59,13 +59,14 @@ echo -e "admin: $admin" >> /root/list_id.txt
 # Display configuration summary
 clear
 echo ""
-echo -e "           Rampung.!"
-echo -e "      Data Telah Disimpan"
+echo -e "\e[1;33m===============================\e[0m"
+echo -e "             Rampung.!"
+echo -e "        Data Telah Disimpan"
 echo -e "\e[1;33m===============================\e[0m"
 echo -e "Bot Token     : $bottoken"
 echo -e "Id Telegram   : $admin"
 echo -e "\e[1;33m===============================\e[0m"
-sleep 0.7
+sleep 10
 clear
 
 # Create systemd service
@@ -87,9 +88,9 @@ END
 
 # Enable and start the service
 echo ""
-echo -e "\e[1;33m==========================================\e[0m"
-echo -e "Tunggu Menyelesaikan Pengaturan 10s Anj :v"
-echo -e "\e[1;33m==========================================\e[0m"
+echo -e "\e[1;33m==================================================\e[0m"
+echo -e "  Tunggu Menyelesaikan Pengaturan 10s Anj :v"
+echo -e "\e[1;33m==================================================\e[0m"
 sleep 0.5
 echo ""
 systemctl daemon-reload
@@ -100,7 +101,7 @@ systemctl start runbot.service
 clear
 echo ""
 echo -e "\e[1;33m==================================================\e[0m"
-echo -e "Installasi Telah Selesai, Klik /start Di Boot"
+echo -e "  Installasi Telah Selesai, Klik /start Di Boot"
 echo -e "\e[1;33m==================================================\e[0m"
 read -n 1 -s -r -p "Tekan Enter Untuk Reboot System: "
 
