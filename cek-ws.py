@@ -20,7 +20,7 @@ def cek_vmess():
         try:
             with open('/etc/cek-vmess.log', 'r') as file:
                 log_content = file.read()
-            return f'User Login Vmess Account:\n{log_content}'
+            return f'{log_content}'
         except FileNotFoundError:
             logger.error('Log file not found.')
             return 'Log file not found.'
