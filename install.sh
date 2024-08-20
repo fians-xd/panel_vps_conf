@@ -49,7 +49,7 @@ cd
 echo ""
 echo -e "\e[1;33m===============================\e[0m"
 echo -e "        Auth: @fians-xd"
-echo -e "       Boot Version: 5.3"
+echo -e "       Boot Version: 5.7"
 echo -e "\e[1;33m===============================\e[0m"
 read -e -p "[*] Input your Bot Token: " bottoken
 read -e -p "[*] Input Your Id Telegram: " admin
@@ -63,8 +63,8 @@ echo -e "\e[1;33m===============================\e[0m"
 echo -e "             Rampung.!"
 echo -e "        Data Telah Disimpan"
 echo -e "\e[1;33m===============================\e[0m"
-echo -e "Bot Token     : $bottoken"
-echo -e "Id Telegram   : $admin"
+echo -e " Bot Token     : $bottoken"
+echo -e " Id Telegram   : $admin"
 echo -e "\e[1;33m===============================\e[0m"
 sleep 10
 clear
