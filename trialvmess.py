@@ -20,7 +20,7 @@ def create_vmess_account():
         try:
             with open('/etc/log-create-vmess-trial-clean.log', 'r') as file:
                 log_content = file.read()
-            return f'Vmess Account created:\n\n{log_content}'
+            return f'{log_content}'
         except FileNotFoundError:
             logger.error('Log file not found.')
             return 'Log file not found.'
