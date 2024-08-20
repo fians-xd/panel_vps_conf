@@ -226,7 +226,7 @@ async def handle_type(query: types.CallbackQuery):
                         logging.error(f"Process error: {stderr_str}")
                         await query.message.edit_text(f"Error while running trial {action.split('_')[1].capitalize()} Account:\n{stderr_str}")
                     else:
-                        await query.message.edit_text(f"{stdout_str}")
+                        await query.message.edit_text(f"{stdout_str}", parse_mode='Markdown')
                 except Exception as e:
                     logging.error(f"Exception occurred while running the script: {str(e)}")
                     await query.message.edit_text(f"Exception occurred while running trial {action.split('_')[1].capitalize()} Account:\n{str(e)}")
@@ -440,7 +440,7 @@ async def handle_input(message: types.Message):
                 logging.error(f"Process error: {stderr_str}")
                 await message.reply(f"Error while creating {action.split('_')[1].capitalize()} Account:\n{stderr_str}")
             else:
-                await message.reply(f"{stdout_str}")
+                await message.reply(f"{stdout_str}", parse_mode='Markdown')
         except Exception as e:
             logging.error(f"Exception occurred while running the script: {str(e)}")
             await message.reply(f"Exception occurred while creating {action.split('_')[1].capitalize()} Account:\n{str(e)}")
