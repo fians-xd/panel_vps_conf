@@ -21,7 +21,7 @@ def create_ssh(username, password, expiry_days):
     try:
         with open('/etc/log-create-ssh-clean.log', 'r') as file:
             log_content = file.read()
-        return f'SSH WebSocket Account created:\n\n{log_content}'
+        return f'{log_content}'
     except FileNotFoundError:
         logger.error('Log file not found.')
         return 'Log file not found.'
