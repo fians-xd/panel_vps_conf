@@ -51,8 +51,8 @@ echo -e "\e[1;33m===============================\e[0m"
 echo -e "        Auth: @fians-xd"
 echo -e "       Boot Version: 5.7"
 echo -e "\e[1;33m===============================\e[0m"
-read -e -p "[*] Input your Bot Token: " bottoken
-read -e -p "[*] Input Your Id Telegram: " admin
+read -e -p "[*] Input Bot Token: " bottoken
+read -e -p "[*] Input Id Telegram: " admin
 echo -e "$bottoken" > /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/ver.txt
 echo -e "admin: $admin" >> /root/list_id.txt
 
@@ -60,8 +60,8 @@ echo -e "admin: $admin" >> /root/list_id.txt
 clear
 echo ""
 echo -e "\e[1;33m===============================\e[0m"
-echo -e "             Rampung.!"
-echo -e "        Data Telah Disimpan"
+echo -e "            Rampung.!"
+echo -e "       Data Telah Disimpan"
 echo -e "\e[1;33m===============================\e[0m"
 echo -e " Bot Token     : $bottoken"
 echo -e " Id Telegram   : $admin"
