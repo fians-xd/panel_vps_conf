@@ -20,7 +20,7 @@ def cek_ssh():
         try:
             with open('/etc/cek-ssh.log', 'r') as file:
                 log_content = file.read()
-            return f'User Login SSH Account:\n{log_content}'
+            return f'{log_content}'
         except FileNotFoundError:
             logger.error('Log file not found.')
             return 'Log file not found.'
