@@ -24,14 +24,24 @@ cd /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/
 
 # Get tools
 wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py
+
+# Creat Account Live
 wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/ssh.py
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trojan.py
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vless.py
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vmess.py
+
+# Creat Account Trial
 wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialssh.py
 wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialtrojan.py
 wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvless.py
 wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvmess.py
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trojan.py
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vless.py
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vmess.py
+
+# Cek Login Account
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek.py
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-vless.py
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-tr.py
+wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-ws.py
 
 # Collect user inputs
 clear
