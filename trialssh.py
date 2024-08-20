@@ -20,7 +20,7 @@ def create_ssh():
         try:
             with open('/etc/log-create-ssh-trial-clean.log', 'r') as file:
                 log_content = file.read()
-            return f'SSH WebSocket Account created:\n\n{log_content}'
+            return f'{log_content}'
         except FileNotFoundError:
             logger.error('Log file not found.')
             return 'Log file not found.'
