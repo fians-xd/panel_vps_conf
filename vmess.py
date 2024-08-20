@@ -21,7 +21,7 @@ def create_vmess_account(username, expiry_days):
         try:
             with open('/etc/log-create-vmess-clean.log', 'r') as file:
                 log_content = file.read()
-            return f'Vmess Account created:\n\n{log_content}'
+            return f'{log_content}'
         except FileNotFoundError:
             logger.error('Log file not found.')
             return 'Log file not found.'
