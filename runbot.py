@@ -19,6 +19,15 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 def get_api_token(file_path):
     with open(file_path, 'r') as file:
         return file.readline().strip()
+        
+def get_cpu_usage():
+    return psutil.cpu_percent(interval=1)
+def get_memory_usage():
+    mem = psutil.virtual_memory()
+    return mem.percent
+def get_swap_usage():
+    swap = psutil.swap_memory()
+    return swap.percent
 
 # Path ke file ver.txt
 file_path = '/mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf/ver.txt'
@@ -314,12 +323,12 @@ async def process_settings(query: types.CallbackQuery):
 
     if action == "monitor":
         cpu_usage = get_cpu_usage()
-        memory_usage = os.popen("free -m | awk 'NR==2{printf \"%.2f\", $3*100/$2 }'").readline().strip()
-        swap_usage = os.popen("free -m | awk 'NR==3{printf \"%.2f\", $3*100/$2 }'").readline().strip()
+        memory_usage = get_memory_usage()
+        swap_usage = get_swap_usage()
 
-        cpu_bar = create_bar(float(cpu_usage))
-        memory_bar = create_bar(float(memory_usage))
-        swap_bar = create_bar(float(swap_usage))
+        cpu_bar = create_bar(cpu_usage)
+        memory_bar = create_bar(memory_usage)
+        swap_bar = create_bar(swap_usage)
 
         await bot.send_message(query.from_user.id,
                                f"CPU Usage: {cpu_bar} {cpu_usage:.2f}%\n"                               
