@@ -23,25 +23,25 @@ mkdir /mnt/.config
 cd /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
 
 # Get tools
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|runbot.py\s+100%|saved \["
 
 # Creat Account Live
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/ssh.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trojan.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vless.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vmess.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/ssh.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ssh.py\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trojan.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trojan.py\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vless.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|vless.py\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vmess.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|vmess.py\s+100%|saved \["
 
 # Creat Account Trial
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialssh.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialtrojan.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvless.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvmess.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialssh.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trialssh.py\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialtrojan.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trialtrojan.py\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvless.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trialvless.py\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvmess.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|trialvmess.py\s+100%|saved \["
 
 # Cek Login Account
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-vless.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-tr.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-ws.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek.py\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-vless.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek-vless.py\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-tr.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek-tr.py\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-ws.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|cek-ws.py\s+100%|saved \["
 
 # Collect user inputs
 clear
