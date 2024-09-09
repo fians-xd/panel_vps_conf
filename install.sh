@@ -1,7 +1,7 @@
 #!/bin/bash
 
-apt update
-apt install python3 python3-pip -y
+apt-get update
+apt-get install python3 python3-pip -y
 python3 -m pip install --upgrade pip
 python3 -m pip install psutil aiogram==2.25.2
 
@@ -23,25 +23,25 @@ mkdir /mnt/.config
 cd /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
 
 # Get tools
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
 
 # Creat Account Live
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/ssh.py
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trojan.py
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vless.py
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vmess.py
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/ssh.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trojan.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vless.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vmess.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
 
 # Creat Account Trial
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialssh.py
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialtrojan.py
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvless.py
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvmess.py
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialssh.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialtrojan.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvless.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvmess.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
 
 # Cek Login Account
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek.py
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-vless.py
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-tr.py
-wget https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-ws.py
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-vless.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-tr.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
+wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-ws.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|nginx.conf\s+100%|saved \["
 
 # Collect user inputs
 clear
@@ -66,7 +66,7 @@ echo -e "\e[1;33m===============================\e[0m"
 echo -e " Bot Token     : $bottoken"
 echo -e " Id Telegram   : $admin"
 echo -e "\e[1;33m===============================\e[0m"
-sleep 10
+sleep 0.7
 clear
 
 # Create systemd service
