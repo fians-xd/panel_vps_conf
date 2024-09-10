@@ -92,7 +92,7 @@ main_keyboard.add(
     InlineKeyboardButton("【 Your OS Settings 】", callback_data='settings')
 )
 main_keyboard.add(
-    InlineKeyboardButton("【 Donate 】", url='wa.me/6285788962287'),
+    InlineKeyboardButton("【 Donate 】", url='wa.me/6287749044636'),
     InlineKeyboardButton("【 Serv fees 】", url='https://t.me/+LTtQ920p7PBhNTRl')
 )
 main_keyboard.add(
@@ -150,7 +150,7 @@ async def start(message: types.Message):
     
     # Cek apakah user_id atau chat_id diperbolehkan
     if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
-        await message.answer("Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+        await message.answer("Izin dulu cah ganteng 🙃\nJapri: wa.me/6287749044636")
         return
 
     # Jalankan script shell untuk memperbarui log
@@ -186,7 +186,7 @@ async def handle_protocol(query: types.CallbackQuery):
     
     # Cek apakah user_id atau chat_id diperbolehkan
     if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
-        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6287749044636")
         return
 
     action = protocol_map.get(query.data)
@@ -210,7 +210,7 @@ async def handle_type(query: types.CallbackQuery):
     
     # Cek apakah user_id atau chat_id diperbolehkan
     if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
-        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6287749044636")
         return
 
     protocol_key, account_type = query.data.rsplit('_', 1)
@@ -274,7 +274,7 @@ async def show_settings(query: types.CallbackQuery):
     
     # Cek apakah user_id atau chat_id diperbolehkan
     if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
-        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6287749044636")
         return
 
     await query.message.edit_reply_markup(reply_markup=None)
@@ -288,7 +288,7 @@ async def show_loading_bar(query, task_name):
     
     # Cek apakah user_id atau chat_id diperbolehkan
     if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
-        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6287749044636")
         return
 
     msg = await bot.send_message(query.from_user.id, f"{task_name}: ")
@@ -313,7 +313,7 @@ async def process_settings(query: types.CallbackQuery):
     
     # Cek apakah user_id atau chat_id diperbolehkan
     if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
-        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+        await query.message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6287749044636")
         return
 
     action = query.data
@@ -374,7 +374,7 @@ async def handle_input(message: types.Message):
     
     # Cek apakah user_id atau chat_id diperbolehkan
     if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
-        await message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+        await message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6287749044636")
         return
 
     user_id = message.from_user.id
@@ -385,8 +385,8 @@ async def handle_input(message: types.Message):
 
     if 'username' not in user_data[user_id]:
         # Validate username length
-        if len(input_text) < 6:
-            await message.reply('Minimal 6 Huruf Njirr.!')
+        if len(input_text) < 5:
+            await message.reply('Minimal 5 Huruf Njirr.!')
             return
         
         user_data[user_id]['username'] = input_text
@@ -427,7 +427,7 @@ async def handle_input(message: types.Message):
     
                     # Cek apakah user_id atau chat_id diperbolehkan
                     if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
-                        await message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+                        await message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6287749044636")
                         return
                     args = ['python3', script, username, password, expiry_days]
             else:
@@ -436,7 +436,7 @@ async def handle_input(message: types.Message):
     
                 # Cek apakah user_id atau chat_id diperbolehkan
                 if not is_id_allowed(user_id) and not is_id_allowed(chat_id):
-                        await message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6285788962287")
+                        await message.edit_text(text="Izin dulu cah ganteng 🙃\nJapri: wa.me/6287749044636")
                         return
                 args = ['python3', script, username, expiry_days]
                 
