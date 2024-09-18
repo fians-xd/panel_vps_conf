@@ -3,7 +3,7 @@
 apt-get update
 apt-get install python3 python3-pip -y
 python3 -m pip install --upgrade pip
-python3 -m pip install psutil aiogram==2.25.2
+python3 -m pip install psutil aiogram==2.25.2 --root-user-action=ignore
 
 
 # Creat Dir
