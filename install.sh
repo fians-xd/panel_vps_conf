@@ -7,17 +7,17 @@ python3 -m pip install --upgrade pip
 python3 -m pip install psutil aiogram==2.25.2
 
 # Warna
-biru='\e[36m'
-red='\e[1;31m'
-green='\e[0;32m'
-yell='\e[1;33m'
-tyblue='\e[1;36m'
-BRed='\e[1;31m'
-BGreen='\e[1;32m'
-BGren='\e[1;44m'
-BYellow='\e[1;33m'
-BBlue='\e[1;34m'
-NC='\e[0m'
+biru="\e[36m"
+red="\e[1;31m"
+green="\e[0;32m"
+yell="\e[1;33m"
+tyblue="\e[1;36m"
+BRed="\e[1;31m"
+BGreen="\e[1;32m"
+BGren="\e[1;44m"
+BYellow="\e[1;33m"
+BBlue="\e[1;34m"
+NC="\e[0m"
 
 # Creat Dir
 mkdir -p /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
@@ -41,10 +41,10 @@ spinner() {
     local pid=$!
     local delay=0.1
     local spinstr='|/-\'
-    local msg="\003[36m ~=[ \003[0;32mPlease Wait, the System is Being Configured.."
+    local msg="${biru} ~=[ ${green}Please Wait, the System is Being Configured.."
     while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
         local temp=${spinstr#?}
-        printf "\r%s %c ${biru}]=~${NC}" "$msg" "\003[1;33m$spinstr"
+        printf "\r%s %c ${biru}]=~${NC}" "$msg" "$spinstr"
         local spinstr=$temp${spinstr%"$temp"}
         sleep $delay
     done
