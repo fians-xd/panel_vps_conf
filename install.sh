@@ -34,7 +34,10 @@ mkdir /mnt/.config
 
 cd /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
 
+echo " "
 echo -e "${biru}~=[ ${green}Please Wait, the System is Being Configured..! ${biru}]=~${NC}"
+echo " "
+echo " "
 
 # Get tools
 wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py
