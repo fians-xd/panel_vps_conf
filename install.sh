@@ -5,6 +5,18 @@ apt-get install python3 python3-pip -y
 python3 -m pip install --upgrade pip
 python3 -m pip install psutil aiogram==2.25.2
 
+# Warna
+biru='\e[36m'
+red='\e[1;31m'
+green='\e[0;32m'
+yell='\e[1;33m'
+tyblue='\e[1;36m'
+BRed='\e[1;31m'
+BGreen='\e[1;32m'
+BGren='\e[1;44m'
+BYellow='\e[1;33m'
+BBlue='\e[1;34m'
+NC='\e[0m'
 
 # Creat Dir
 mkdir -p /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
@@ -21,6 +33,8 @@ mkdir /mnt/.configuring
 mkdir /mnt/.config
 
 cd /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
+
+echo -e "${biru}~=[ ${green}Please Wait, the System is Being Configured..! ${biru}]=~${NC}"
 
 # Get tools
 wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py
