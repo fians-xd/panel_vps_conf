@@ -36,30 +36,68 @@ mkdir /mnt/.config
 cd /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
 clear
 echo " "
-echo -e "${biru} ~=[ ${green}Please Wait, the System is Being Configured..! ${biru}]=~${NC}"
-echo " "
-echo " "
+# Spinner function
+spinner() {
+    local pid=$!
+    local delay=0.1
+    local spinstr='|/-\'
+    local msg="${biru} ~=[ ${green}Please Wait, the System is Being Configured.."
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local temp=${spinstr#?}
+        printf "\r%s %c ${biru}]=~${NC}" "$msg" "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+    done
+    printf "\r%s Done! ${biru}]=~${NC}\n" "$msg"
+}
+
+# Proses wget dengan spinner
+(
+  # Get tools
+  wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py
+
+  # Creat Account Live
+  wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/ssh.py
+  wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trojan.py
+  wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vless.py
+  wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vmess.py
+
+  # Creat Account Trial
+  wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialssh.py
+  wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialtrojan.py
+  wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvless.py
+  wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvmess.py
+
+  # Cek Login Account
+  wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek.py
+  wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-vless.py
+  wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-tr.py
+  wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-ws.py
+) & spinner
+
+#echo -e "${biru} ~=[ ${green}Please Wait, the System is Being Configured..! ${biru}]=~${NC}"
+#echo " "
 
 # Get tools
-wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py
+#wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py
 
 # Creat Account Live
-wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/ssh.py
-wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trojan.py
-wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vless.py
-wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vmess.py
+#wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/ssh.py
+#wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trojan.py
+#wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vless.py
+#wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/vmess.py
 
 # Creat Account Trial
-wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialssh.py
-wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialtrojan.py
-wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvless.py
-wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvmess.py
+#wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialssh.py
+#wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialtrojan.py
+#wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvless.py
+#wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trialvmess.py
 
 # Cek Login Account
-wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek.py
-wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-vless.py
-wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-tr.py
-wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-ws.py
+#wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek.py
+#wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-vless.py
+#wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-tr.py
+#wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/cek-ws.py
 
 # Collect user inputs
 clear
