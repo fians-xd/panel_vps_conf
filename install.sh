@@ -40,11 +40,11 @@ echo " "
 spinner() {
     local pid=$!
     local delay=0.1
-    local spinstr='\e[1;33m|/-\'
-    local msg="\e[36m ~=[ \e[0;32mPlease Wait, the System is Being Configured.."
+    local spinstr='|/-\'
+    local msg="\003[36m ~=[ \003[0;32mPlease Wait, the System is Being Configured.."
     while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
         local temp=${spinstr#?}
-        printf "\r%s %c ${biru}]=~${NC}" "$msg" "$spinstr"
+        printf "\r%s %c ${biru}]=~${NC}" "$msg" "\003[1;33m$spinstr"
         local spinstr=$temp${spinstr%"$temp"}
         sleep $delay
     done
