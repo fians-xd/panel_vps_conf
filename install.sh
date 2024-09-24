@@ -41,14 +41,13 @@ spinner() {
     local pid=$!
     local delay=0.1
     local spinstr='|/-\'
-    local msg="${biru} ~=[ ${green}Please Wait, the System is Being Configured.."
     while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
         local temp=${spinstr#?}
-        printf "\r%s %c ${biru}]=~${NC}" "$msg" "$spinstr"
+        printf "\r${biru}~=[ ${green}Please Wait, the System is Being Configured.. %c ${biru}]=~${NC}" "$spinstr"
         local spinstr=$temp${spinstr%"$temp"}
         sleep $delay
     done
-    printf "\r%s Done! ${biru}]=~${NC}\n" "$msg"
+    printf "\r${biru}~=[ ${green}Please Wait, the System is Being Configured.. Done! ${biru}]=~${NC}\n"
 }
 
 # Proses wget dengan spinner
