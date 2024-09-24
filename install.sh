@@ -108,5 +108,3 @@ read -n 1 -s -r -p "Tekan Enter Untuk Reboot System: "
 apt-get autoremove -y
 pip cache purge
 pip3 cache purge
-rm -rf /tmp/wget.log install.sh
-reboot
