@@ -23,7 +23,7 @@ mkdir /mnt/.config
 cd /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
 
 # Get tools
-wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|runbot.py\s+100%|saved \["
+wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|runbot.py\s+100%|saved \["
 
 # Creat Account Live
 wget --progress=bar:force https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/ssh.py 2>&1 | tee /tmp/wget.log | grep --line-buffered -E "HTTP request sent|Length|Saving to|ssh.py\s+100%|saved \["
