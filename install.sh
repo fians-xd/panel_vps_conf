@@ -124,9 +124,9 @@ echo -e "  Tunggu Menyelesaikan Pengaturan 10s Anj :v"
 echo -e "\e[1;33m==================================================\e[0m"
 sleep 0.5
 echo ""
-systemctl daemon-reload
-systemctl enable runbot.service
-systemctl start runbot.service
+systemctl daemon-reload &> /dev/null
+systemctl enable runbot.service &> /dev/null
+systemctl start runbot.service &> /dev/null
 
 # Cleanup and reboot
 clear
