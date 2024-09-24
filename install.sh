@@ -10,7 +10,6 @@ python3 -m pip install psutil aiogram==2.25.2
 biru="\e[36m"
 red="\e[1;31m"
 green="\e[0;32m"
-putih="\e[37m"
 yell="\e[1;33m"
 tyblue="\e[1;36m"
 BRed="\e[1;31m"
