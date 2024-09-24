@@ -10,6 +10,7 @@ python3 -m pip install psutil aiogram==2.25.2
 biru="\e[36m"
 red="\e[1;31m"
 green="\e[0;32m"
+putih="\e[37m"
 yell="\e[1;33m"
 tyblue="\e[1;36m"
 BRed="\e[1;31m"
@@ -43,7 +44,7 @@ spinner() {
     local spinstr='|/-\'
     while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
         local temp=${spinstr#?}
-        printf "\r${biru}~=[ ${green}Please Wait, the System is Being Configured.. %c ${biru}]=~${NC}" "$spinstr"
+        printf "\r${biru}~=[ ${green}Please Wait, the System is Being Configured..${putih} %c ${biru}]=~${NC}" "$spinstr"
         local spinstr=$temp${spinstr%"$temp"}
         sleep $delay
     done
