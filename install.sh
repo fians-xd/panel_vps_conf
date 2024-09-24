@@ -48,8 +48,6 @@ spinner() {
         local spinstr=$temp${spinstr%"$temp"}
         sleep $delay
     done
-    clear
-    printf "\r${biru}~=[ ${green}Please Wait, the System is Being Configured.. Done! ${biru}]=~${NC}\n"
 }
 
 # Proses wget dengan spinner
