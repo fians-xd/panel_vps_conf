@@ -136,6 +136,6 @@ echo -e "  Installasi Telah Selesai, Klik /start Di Boot"
 echo -e "\e[1;33m==================================================\e[0m"
 read -n 1 -s -r -p "Tekan Enter Untuk Reboot System: "
 
-apt-get autoremove -y
-pip cache purge
-pip3 cache purge
+apt-get autoremove -y &> /dev/null
+pip cache purge &> /dev/null
+pip3 cache purge &> /dev/null
