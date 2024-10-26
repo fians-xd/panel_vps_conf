@@ -355,7 +355,7 @@ async def process_settings(query: types.CallbackQuery):
         #await bot.send_message(query.from_user.id, "‎‎ \n ‎‎  ‎ ‎‎ ‎  ‎ ‎‎~=【  Harap Hati-Hati  】=~ ‎‎ ‎   ‎ ‎‎ ‎ ‎‎", reply_markup=settings_keyboard)
 
     elif action == "status_service":
-        cmd = "running"
+        cmd = "jalan-run"
         await run_system_command(cmd)
         with open('/etc/status-service.log', 'r') as f:
             log_data = f.read()
