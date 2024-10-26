@@ -54,7 +54,9 @@ spinner() {
 (
   # Get tools
   wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/runbot.py
-
+  wget -q -O /usr/bin/jalan-run https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/jalan-run.sh
+  chmod +x jalan-run
+  cd /mnt/.obscure/.data/.complex/.path/.secret/.layer/.cryptic/.depth/.structure/.area/.panel_vps_conf
   # Creat Account Live
   wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/ssh.py
   wget -q https://raw.githubusercontent.com/fians-xd/panel_vps_conf/master/trojan.py
