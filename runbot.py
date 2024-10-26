@@ -143,7 +143,7 @@ def is_id_allowed(chat_or_user_id):
     
     return str(chat_or_user_id) in allowed_ids
 
-@dp.message_handler(commands=['start'])
+@dp.message_handler(commands=['start', '.start', '.run', '.gas'])
 async def start(message: types.Message):
     user_id = message.from_user.id
     chat_id = message.chat.id
